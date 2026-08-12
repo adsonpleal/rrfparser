@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      # Proves no DOM type leaked into the public .d.ts. latam-market compiles with
+      # lib: ["ES2020"] and no DOM, so this is a real constraint, not a theoretical one.
+      - run: npx tsc -p test/dts-consumer/tsconfig.json
+      # Catches ESM/CJS "masquerading" mistakes in the exports map before they reach npm.
+      - run: npx --yes @arethetypeswrong/cli --pack .

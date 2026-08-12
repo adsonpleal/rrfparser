@@ -1,0 +1,64 @@
+{
+  "name": "rrfparser",
+  "version": "1.0.0-rc.1",
+  "description": "Isomorphic TypeScript parser for Ragnarok Online .rrf replay files",
+  "license": "MIT",
+  "author": "Adson Leal",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adsonpleal/rrfparser.git"
+  },
+  "homepage": "https://github.com/adsonpleal/rrfparser#readme",
+  "bugs": "https://github.com/adsonpleal/rrfparser/issues",
+  "keywords": [
+    "ragnarok",
+    "ragnarok-online",
+    "rrf",
+    "replay",
+    "parser",
+    "isomorphic",
+    "packet"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/fixup-cjs.mjs",
+    "typecheck": "tsc -p tsconfig.base.json --noEmit",
+    "typecheck:dts": "npm run build && tsc -p test/dts-consumer/tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.9"
+  }
+}

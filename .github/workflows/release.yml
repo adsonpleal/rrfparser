@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # Required for npm provenance: it mints the signed attestation linking the
+      # published tarball back to this exact commit and workflow run.
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npx tsc -p test/dts-consumer/tsconfig.json
+      - run: npx --yes @arethetypeswrong/cli --pack .
+      # A tag like v1.0.0-rc.1 publishes under `next` so a plain `npm i rrfparser`
+      # never resolves to a prerelease. Stable tags publish under `latest`.
+      - name: Publish
+        run: |
+          case "${GITHUB_REF_NAME}" in
+            *-*) TAG=next ;;
+            *)   TAG=latest ;;
+          esac
+          echo "Publishing ${GITHUB_REF_NAME} under dist-tag ${TAG}"
+          npm publish --provenance --access public --tag "$TAG"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

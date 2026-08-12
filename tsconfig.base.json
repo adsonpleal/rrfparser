@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    // ES2020 rather than ES2022: nothing in the parser needs anything newer, and the
+    // consumers span Angular 16 (TypeScript 5.1) through Node 22. Emitting the lowest
+    // target that costs nothing widens compatibility for free.
+    "target": "ES2020",
+    // DOM is here only so `TextDecoder` typechecks (header.ts, reader.ts). No DOM type
+    // may leak into the emitted .d.ts — test/dts-consumer is the gate that proves it.
+    "lib": ["ES2020", "DOM"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
