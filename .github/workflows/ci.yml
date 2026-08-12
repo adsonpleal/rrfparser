@@ -24,5 +24,8 @@ jobs:
       # Proves no DOM type leaked into the public .d.ts. latam-market compiles with
       # lib: ["ES2020"] and no DOM, so this is a real constraint, not a theoretical one.
       - run: npx tsc -p test/dts-consumer/tsconfig.json
-      # Catches ESM/CJS "masquerading" mistakes in the exports map before they reach npm.
-      - run: npx --yes @arethetypeswrong/cli --pack .
+      # Catches ESM/CJS "masquerading" mistakes in the exports map before they
+      # reach npm. Checks the published artifact, not the runtime, so it only
+      # needs to run once — and its own CLI requires Node 20+.
+      - if: matrix.node == 22
+        run: npx --yes @arethetypeswrong/cli --pack .
