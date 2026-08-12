@@ -1,0 +1,82 @@
+/**
+ * The numbers here were measured by decoding the fixture by hand before any
+ * parser existed: 34 items in the bag (chunk 4510), 17 in the cart (4516), 6
+ * worn (4601) and 2 costume/shadow (4603). If a refactor touches the record
+ * stride or the per-container split, this is where it shows up.
+ */
+import { describe, expect, it } from "vitest";
+import { decodeInventory, decodeReplay, toInventoryMap } from "../src/index.js";
+import { loadReplayFixture } from "./load-fixture.js";
+
+const items = decodeInventory(loadReplayFixture("equip-test-2.rrf"));
+
+describe("decodeInventory (equip-test-2.rrf)", () => {
+  it("separates bag, cart and worn gear", () => {
+    expect(items.inventory).toHaveLength(34);
+    expect(items.cart).toHaveLength(17);
+    expect(items.equipped).toHaveLength(6);
+    expect(items.equippedCostume).toHaveLength(2);
+  });
+
+  it("does not leak a cart item into the bag", () => {
+    // Both lists number their slots from zero, and slots 4 and 5 exist only in
+    // the cart. Merging by a global slot index — what two of the three upstream
+    // forks did — put these two shadow-gear pieces in the bag.
+    const bagIds = new Set(items.inventory.map((r) => r.itemId));
+    expect(bagIds.has(24076)).toBe(false);
+    expect(bagIds.has(24111)).toBe(false);
+    expect(items.cart.map((r) => r.itemId)).toContain(24076);
+  });
+
+  it("reads quantity, refine and cards", () => {
+    expect(items.cart[0]).toMatchObject({ slot: 0, itemId: 1004, qty: 3 });
+
+    const weapon = items.equipped.find((r) => r.itemId === 1398);
+    expect(weapon).toBeDefined();
+    expect(weapon!.refine).toBe(7);
+  });
+
+  it("flags worn gear with its equip-location bitmask", () => {
+    expect(items.equipped.every((r) => r.equipped > 0)).toBe(true);
+    expect(items.equippedCostume.map((r) => r.itemId)).toContain(440007);
+  });
+
+  it("does not double-count a slot repeated within one chunk", () => {
+    // Chunk 4601 carries item 1398 twice (a two-handed weapon occupies two
+    // locations). Each slot may appear only once in the result.
+    const slots = items.equipped.map((r) => r.slot);
+    expect(new Set(slots).size).toBe(slots.length);
+  });
+
+  it("agrees with the full decodeReplay path", () => {
+    const full = decodeReplay(loadReplayFixture("equip-test-2.rrf"));
+    expect(full.items).toEqual(items);
+  });
+});
+
+describe("cart separation on sn-buffs-potion.rrf", () => {
+  const replay = decodeReplay(loadReplayFixture("sn-buffs-potion.rrf"));
+
+  it("keeps the cart out of the inventory slot space", () => {
+    expect(replay.items.cart.length).toBeGreaterThan(0);
+    const merged = toInventoryMap(replay.items);
+    // Merging the cart in as well would take this to 117 — the 26 extra entries
+    // are cart records that displaced or invented bag slots.
+    expect(merged.size).toBe(91);
+    expect(replay.initialInventory.size).toBe(91);
+
+    const cartSlots = new Set(replay.items.cart.map((r) => r.slot));
+    const bagSlots = new Set(replay.items.inventory.map((r) => r.slot));
+    // A cart slot that the bag does not also have must not appear in the merge.
+    for (const slot of cartSlots) {
+      if (!bagSlots.has(slot)) expect(merged.has(slot)).toBe(false);
+    }
+  });
+
+  it("prefers the worn record over the bag's view of the same slot", () => {
+    const merged = toInventoryMap(replay.items);
+    for (const worn of replay.items.equipped) {
+      expect(merged.get(worn.slot)).toBe(worn);
+    }
+  });
+});

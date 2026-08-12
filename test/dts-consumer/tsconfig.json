@@ -1,0 +1,29 @@
+{
+  // Two things this proves, neither of which the main build or the test suite
+  // can catch:
+  //
+  // 1. No DOM type leaked into the public .d.ts. `lib` is ES2020 only — src/
+  //    compiles with DOM in scope so TextDecoder typechecks, and a DOM type
+  //    escaping into an exported signature would break consumers that compile
+  //    without it (latam-market does exactly that).
+  //
+  // 2. The package resolves under TypeScript's node10 algorithm, which ignores
+  //    the `exports` map entirely and reads main/module/types instead. Angular
+  //    16 pins TypeScript 5.1 with moduleResolution "node", so this is the real
+  //    resolution path for one of the consumers. A bundler-only check would
+  //    pass while `ng build` failed.
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "strict": true,
+    "noEmit": true,
+    "types": [],
+    "baseUrl": ".",
+    "paths": {
+      "rrfparser": ["../../"]
+    }
+  },
+  "files": ["index.ts"]
+}
