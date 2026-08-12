@@ -1,0 +1,7 @@
+node_modules/
+dist/
+coverage/
+*.tgz
+
+# Throwaway copies of the old fork decoders, used only by the differential harness.
+scratch/

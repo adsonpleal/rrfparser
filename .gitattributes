@@ -1,0 +1,7 @@
+# The three upstream forks disagreed on line endings (ragreplaystats used CRLF, the
+# other two LF). Normalizing here, before the first commit of source, is what makes
+# the merge diff reviewable.
+* text=auto eol=lf
+
+# The test replays are binary — never let git touch them.
+*.rrf binary
