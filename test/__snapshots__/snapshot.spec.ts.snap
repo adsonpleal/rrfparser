@@ -11085,8 +11085,8 @@ exports[`decoded output is stable > equip-test-2.rrf 1`] = `
    "statusId": 673,
    "aid": 1127666,
    "isOn": true,
-   "totalMs": 0,
-   "leftMs": 0
+   "totalMs": 9999,
+   "leftMs": 9999
   },
   {
    "time": 0,
@@ -22537,15 +22537,15 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
  "statusEvents": [
   {
    "time": 0,
-   "statusId": 1409,
+   "statusId": 673,
    "aid": 1596531,
    "isOn": true,
-   "totalMs": 0,
-   "leftMs": 0
+   "totalMs": 9999,
+   "leftMs": 9999
   },
   {
    "time": 0,
-   "statusId": 673,
+   "statusId": 1409,
    "aid": 1596531,
    "isOn": true,
    "totalMs": 0,
@@ -50204,6 +50204,14 @@ exports[`decoded output is stable > sn-buffs-potion.rrf 1`] = `
  "statusEvents": [
   {
    "time": 0,
+   "statusId": 673,
+   "aid": 1001568,
+   "isOn": true,
+   "totalMs": 9999,
+   "leftMs": 9999
+  },
+  {
+   "time": 0,
    "statusId": 37,
    "aid": 1001568,
    "isOn": true,
@@ -50213,14 +50221,6 @@ exports[`decoded output is stable > sn-buffs-potion.rrf 1`] = `
   {
    "time": 0,
    "statusId": 38,
-   "aid": 1001568,
-   "isOn": true,
-   "totalMs": 0,
-   "leftMs": 0
-  },
-  {
-   "time": 0,
-   "statusId": 673,
    "aid": 1001568,
    "isOn": true,
    "totalMs": 0,

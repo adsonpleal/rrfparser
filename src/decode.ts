@@ -244,10 +244,31 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
     }
   }
 
+  const packetStream = containers.find(
+    (c): c is PacketStreamContainer => c.kind === "packetStream",
+  );
+  if (packetStream) {
+    for (const chunk of packetStream.chunks) {
+      packetCount++;
+      knownPacketIdSet.add(chunk.packetId);
+      const t = chunk.time;
+      if (t < earliestTime) earliestTime = t;
+      if (t > latestTime) latestTime = t;
+      handlePacket(chunk.data, t);
+    }
+  }
+
   // Persistent buffs active at recording start (food, EXP/drop boosts, etc.)
   // live in the EfstList container, NOT the packet stream — they never generate
   // a status-change packet during the recording. Seed each as a synthetic
-  // "on" status event at t=0 for the local player so the buff strip shows them.
+  // "on" status event at t=0 for the local player so a buff strip shows them.
+  //
+  // This runs AFTER the packet stream, and the order is load-bearing. A handful
+  // of buffs appear in BOTH places, and dedupeNear collapses same-key events
+  // within 200ms keeping whichever was pushed first. The packet carries the real
+  // `totalMs`/`leftMs`; this seed has neither. Seeding first would therefore
+  // throw the durations away and leave a consumer that expires buffs from
+  // `leftMs` holding them forever.
   const efstListContainer = findContainer(containers, ContainerType.EfstList);
   if (efstListContainer && session.aid) {
     for (const chunk of efstListContainer.chunks) {
@@ -261,20 +282,6 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
       ).getUint32(0, true);
       if (efst <= 0 || efst > 3000) continue; // guard against non-record chunks
       statusEvents.push({ time: 0, statusId: efst, aid: session.aid, isOn: true, totalMs: 0, leftMs: 0 });
-    }
-  }
-
-  const packetStream = containers.find(
-    (c): c is PacketStreamContainer => c.kind === "packetStream",
-  );
-  if (packetStream) {
-    for (const chunk of packetStream.chunks) {
-      packetCount++;
-      knownPacketIdSet.add(chunk.packetId);
-      const t = chunk.time;
-      if (t < earliestTime) earliestTime = t;
-      if (t > latestTime) latestTime = t;
-      handlePacket(chunk.data, t);
     }
   }
 

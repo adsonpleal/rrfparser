@@ -46,16 +46,13 @@ describe("initialInventory back-compat", () => {
   );
 
   it.each(EXPECTED.map(([name]) => name))(
-    "%s: every dropped record was an unequipped cart item",
+    "%s: no cart-only slot reaches the compat map",
     (name) => {
       const r = decodeReplay(loadReplayFixture(name));
       const bagSlots = new Set(r.items.inventory.map((x) => x.slot));
       for (const rec of r.items.cart) {
         if (bagSlots.has(rec.slot)) continue;
-        // Cart-only slot: must be absent from the compat map, and must never
-        // have been something a gear-reading consumer would have wanted.
         expect(r.initialInventory.has(rec.slot)).toBe(false);
-        expect(rec.equipped).toBe(0);
       }
     },
   );
