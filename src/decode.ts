@@ -31,6 +31,7 @@ import type {
   PetSnapshot,
   GroundSkillUnit,
   Replay,
+  SessionInfo,
   SkillCast,
   SkillUse,
   StatusEvent,
@@ -38,13 +39,46 @@ import type {
 } from "./types.js";
 
 /**
- * Header, containers and the item snapshot — without touching the packet stream.
+ * Everything the containers hold, without decoding the packet stream.
+ *
+ * `durationMs` is absent because it is partly a property of the stream; every
+ * other session field comes from the snapshot and is present here.
+ */
+export type ReplaySnapshot = {
+  session: Omit<SessionInfo, "durationMs">;
+  items: ItemContainers;
+  pet?: PetSnapshot;
+};
+
+/**
+ * Header, containers, character and item snapshot — without touching the packet
+ * stream.
  *
  * A separate entry point rather than a field of {@link decodeReplay} so a
- * consumer that only prices an inventory can tree-shake every packet decoder
- * out of its bundle. `decodeReplay` transitively references all of them, so
- * reaching for it would pull in the lot.
+ * consumer that only wants the snapshot can tree-shake every packet decoder out
+ * of its bundle. `decodeReplay` transitively references all of them, so reaching
+ * for it would pull in the lot.
  */
+export function decodeSnapshot(buf: ArrayBuffer): ReplaySnapshot {
+  const header = readHeader(buf);
+  const keys = deriveKeys(header.recordedAt);
+  const containers = readContainers(buf, header.containerTableOffset, keys);
+  const recordedAt = new Date(
+    header.recordedAt.year,
+    header.recordedAt.month - 1,
+    header.recordedAt.day,
+    header.recordedAt.hour,
+    header.recordedAt.minute,
+    header.recordedAt.second,
+  );
+  return {
+    session: extractSessionInfo(containers, recordedAt),
+    items: readItemContainers(containers),
+    pet: extractPet(containers),
+  };
+}
+
+/** The item snapshot alone. Shorthand for `decodeSnapshot(buf).items`. */
 export function decodeInventory(buf: ArrayBuffer): ItemContainers {
   const header = readHeader(buf);
   const keys = deriveKeys(header.recordedAt);

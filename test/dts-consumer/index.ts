@@ -9,6 +9,7 @@ import {
   decodeInventory,
   decodePacket,
   decodeReplay,
+  decodeSnapshot,
   decryptChunk,
   deriveKeys,
   findContainer,
@@ -36,6 +37,7 @@ import {
   type PetSnapshot,
   type RecordedAt,
   type Replay,
+  type ReplaySnapshot,
   type ReplayHeader,
   type SessionInfo,
 } from "rrfparser";
@@ -52,6 +54,7 @@ export function surface(): void {
   const learned: number | undefined = replay.learnedSkills.get(1);
 
   const items: ItemContainers = decodeInventory(buf);
+  const snap: ReplaySnapshot = decodeSnapshot(buf);
   const first: ItemRecord | undefined = items.inventory[0];
   const merged: Map<number, InventoryRecord> = toInventoryMap(items);
 
@@ -86,6 +89,7 @@ export function surface(): void {
     record,
     learned,
     items,
+    snap,
     first,
     merged,
     plain,

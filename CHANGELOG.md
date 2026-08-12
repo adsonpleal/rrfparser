@@ -27,8 +27,11 @@ the merged one, and accounting for every single difference.
 
 Each fork knew things the others didn't; the merge is the union.
 
-- `decodeInventory` — header, containers and items with no packet stream, so an
-  inventory-only consumer can tree-shake the packet decoders away.
+- `decodeSnapshot` — character and items from the containers, with no packet
+  stream, so a consumer that only wants the snapshot tree-shakes every packet
+  decoder away. Measured on latam-market: swapping its hand-rolled parser for
+  the library grew the bundle by 1.4 KB. `decodeInventory` is the same narrowed
+  to the items.
 - Packets `0x010f` (learned skill tree), `0x07fb` (cast start), `0x01f3` (visual
   effects), `0x0086`/`0x0087`/`0x0088` (movement), `0x0229` (mount/cloak state)
   are now all decoded regardless of which fork you came from. Across the corpus

@@ -5,7 +5,12 @@
  * stride or the per-container split, this is where it shows up.
  */
 import { describe, expect, it } from "vitest";
-import { decodeInventory, decodeReplay, toInventoryMap } from "../src/index.js";
+import {
+  decodeInventory,
+  decodeReplay,
+  decodeSnapshot,
+  toInventoryMap,
+} from "../src/index.js";
 import { loadReplayFixture } from "./load-fixture.js";
 
 const items = decodeInventory(loadReplayFixture("equip-test-2.rrf"));
@@ -78,5 +83,17 @@ describe("cart separation on sn-buffs-potion.rrf", () => {
     for (const worn of replay.items.equipped) {
       expect(merged.get(worn.slot)).toBe(worn);
     }
+  });
+});
+
+describe("decodeSnapshot", () => {
+  it("gives the session and items without decoding the packet stream", () => {
+    const snap = decodeSnapshot(loadReplayFixture("mergulho-test.rrf"));
+    const full = decodeReplay(loadReplayFixture("mergulho-test.rrf"));
+    expect(snap.items).toEqual(full.items);
+    expect(snap.pet).toEqual(full.pet);
+    // Identical to the full path except durationMs, which needs the stream.
+    const { durationMs: _d, ...rest } = full.sessionInfo;
+    expect(snap.session).toEqual(rest);
   });
 });

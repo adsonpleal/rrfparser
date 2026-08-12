@@ -8,8 +8,13 @@
  * `sideEffects: false` plus per-file ESM output.
  */
 
-// The two entry points.
-export { decodeReplay, decodeInventory } from "./decode.js";
+// The entry points.
+export {
+  decodeReplay,
+  decodeSnapshot,
+  decodeInventory,
+  type ReplaySnapshot,
+} from "./decode.js";
 
 /**
  * Debugging helpers for working out an unknown packet or container. Unstable —

@@ -34,13 +34,16 @@ const replay = decodeReplay(
 );
 ```
 
-If you only care about the item snapshot, use `decodeInventory` instead — it reads the header, containers and items and never touches the packet stream, so a bundler can drop every packet decoder from your build.
+If you only care about the state at the start of the recording, use `decodeSnapshot` instead. It reads the header, containers, character and items and never touches the packet stream, so a bundler drops every packet decoder from your build — worth about 60 KB.
 
 ```ts
-import { decodeInventory } from "rrfparser";
+import { decodeSnapshot } from "rrfparser";
 
-const { inventory, cart, equipped, equippedCostume } = decodeInventory(buf);
+const { session, items, pet } = decodeSnapshot(buf);
+console.log(session.player, items.cart.length);
 ```
+
+`decodeInventory(buf)` is the same thing narrowed to `items`.
 
 ## What it decodes
 
@@ -93,7 +96,8 @@ Names are `euc-kr`. The decoder tries `euc-kr` first and falls back to Windows-1
 | Export | |
 | --- | --- |
 | `decodeReplay(buf)` | the whole file → `Replay` |
-| `decodeInventory(buf)` | header + containers + items only → `ItemContainers` |
+| `decodeSnapshot(buf)` | the containers only, no packet stream → `ReplaySnapshot` |
+| `decodeInventory(buf)` | just the item snapshot → `ItemContainers` |
 | `toInventoryMap(items)` | merged single-map view of the item snapshot |
 | `readHeader`, `deriveKeys`, `decryptChunk` | the header and its keystream |
 | `readContainers`, `findContainer`, `ContainerType` | raw container access |
