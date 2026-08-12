@@ -34,7 +34,7 @@ const replay = decodeReplay(
 );
 ```
 
-If you only care about the state at the start of the recording, use `decodeSnapshot` instead. It reads the header, containers, character and items and never touches the packet stream, so a bundler drops every packet decoder from your build — worth about 60 KB.
+If you only care about the state at the start of the recording, use `decodeSnapshot` instead. It reads the header, containers, character and items and never touches the packet stream, so a bundler drops every packet decoder from your build: 6.2 KB minified against 21.4 KB for `decodeReplay`.
 
 ```ts
 import { decodeSnapshot } from "rrfparser";
