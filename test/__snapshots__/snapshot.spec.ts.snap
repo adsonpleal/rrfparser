@@ -9,7 +9,9 @@ exports[`decoded output is stable > em-endow-learned-not-active.rrf 1`] = `
   "job": 4261,
   "baseLevel": 239,
   "jobLevel": 50,
-  "recordedAt": "2026-07-06T19:48:35.000Z",
+  "recordedAt": {
+   "$localDate": "2026-07-06T16:48:35"
+  },
   "sex": 1,
   "hairStyle": 23,
   "hairColor": 7,
@@ -4625,7 +4627,9 @@ exports[`decoded output is stable > equip-test-2.rrf 1`] = `
   "job": 5,
   "baseLevel": 26,
   "jobLevel": 26,
-  "recordedAt": "2026-06-10T17:42:10.000Z",
+  "recordedAt": {
+   "$localDate": "2026-06-10T14:42:10"
+  },
   "sex": 1,
   "hairStyle": 2,
   "hairColor": 0,
@@ -11216,7 +11220,9 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
   "job": 4307,
   "baseLevel": 240,
   "jobLevel": 50,
-  "recordedAt": "2026-08-02T15:53:26.000Z",
+  "recordedAt": {
+   "$localDate": "2026-08-02T12:53:26"
+  },
   "sex": 1,
   "hairStyle": 3,
   "hairColor": 1,
@@ -23603,7 +23609,9 @@ exports[`decoded output is stable > mergulho-test.rrf 1`] = `
   "job": 4257,
   "baseLevel": 230,
   "jobLevel": 47,
-  "recordedAt": "2026-06-15T01:31:27.000Z",
+  "recordedAt": {
+   "$localDate": "2026-06-14T22:31:27"
+  },
   "sex": 1,
   "hairStyle": 1,
   "hairColor": 0,
@@ -26549,7 +26557,9 @@ exports[`decoded output is stable > nw-mira-pet.rrf 1`] = `
   "job": 4306,
   "baseLevel": 241,
   "jobLevel": 50,
-  "recordedAt": "2026-07-31T13:19:53.000Z",
+  "recordedAt": {
+   "$localDate": "2026-07-31T10:19:53"
+  },
   "sex": 1,
   "hairStyle": 22,
   "hairColor": 7,
@@ -32748,7 +32758,9 @@ exports[`decoded output is stable > nw-ult.rrf 1`] = `
   "job": 4306,
   "baseLevel": 241,
   "jobLevel": 50,
-  "recordedAt": "2026-07-31T13:14:19.000Z",
+  "recordedAt": {
+   "$localDate": "2026-07-31T10:14:19"
+  },
   "sex": 1,
   "hairStyle": 22,
   "hairColor": 7,
@@ -40404,7 +40416,9 @@ exports[`decoded output is stable > nw-ult-mira.rrf 1`] = `
   "job": 4306,
   "baseLevel": 241,
   "jobLevel": 50,
-  "recordedAt": "2026-07-31T13:17:00.000Z",
+  "recordedAt": {
+   "$localDate": "2026-07-31T10:17:00"
+  },
   "sex": 1,
   "hairStyle": 22,
   "hairColor": 7,
@@ -46301,7 +46315,9 @@ exports[`decoded output is stable > sn-buffs-potion.rrf 1`] = `
   "job": 4190,
   "baseLevel": 200,
   "jobLevel": 70,
-  "recordedAt": "2026-07-21T22:24:13.000Z",
+  "recordedAt": {
+   "$localDate": "2026-07-21T19:24:13"
+  },
   "sex": 1,
   "hairStyle": 22,
   "hairColor": 4,

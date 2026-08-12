@@ -87,6 +87,10 @@ The bitmask is present on bag and cart records too, where it is the item's equip
 
 Inventory and cart also both number their slots from zero, so merging them makes a cart item at slot 4 vanish behind the bag item at slot 4. If you want the old merged shape anyway, `toInventoryMap(items)` builds it (worn, then costume, then bag — cart excluded), and `replay.initialInventory` is that view precomputed.
 
+### `recordedAt` is a wall clock, not an instant
+
+The header stores the recorder's local date and time with no timezone, so `sessionInfo.recordedAt` is a `Date` built from those components in *your* runtime's zone. The wall-clock reading is faithful; the underlying instant is only correct if you are in the same zone as whoever recorded it. Format it with local getters (`getHours()`), not `toISOString()`.
+
 ### Character names
 
 Names are `euc-kr`. The decoder tries `euc-kr` first and falls back to Windows-1252, which is how western and Brazilian servers store them — that fallback is why `Preá` decodes correctly. On a runtime that ships without the euc-kr table (Node built with small-icu, some edge runtimes) everything still works; only the Windows-1252 path is taken.

@@ -15,10 +15,29 @@ import { FIXTURES, loadReplayFixture } from "./load-fixture.js";
  * packet order, which is stable, but sorting removes a whole class of false
  * failures if that order ever shifts without the content changing.
  */
+/**
+ * Local wall-clock rendering. The header stores the recorder's clock with no
+ * zone, so the Date is constructed as local time — rendering it as UTC (which
+ * is what `Date.prototype.toJSON` does) would make the snapshot depend on the
+ * timezone of whatever machine ran the tests.
+ */
+function localStamp(d: Date): string {
+  const p = (n: number, w = 2) => String(n).padStart(w, "0");
+  return (
+    `${p(d.getFullYear(), 4)}-${p(d.getMonth() + 1)}-${p(d.getDate())}` +
+    `T${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`
+  );
+}
+
 export function canonical(r: Replay): string {
   return JSON.stringify(
     r,
-    (_k, v: unknown) => {
+    // Not an arrow function, and the Date is read off `this` rather than from
+    // `v`: JSON.stringify calls toJSON() before handing the value to the
+    // replacer, so by the time a Date arrives here it is already a UTC string.
+    function (this: Record<string, unknown>, k: string, v: unknown) {
+      const raw = this[k];
+      if (raw instanceof Date) return { $localDate: localStamp(raw) };
       if (typeof v === "bigint") return { $bigint: v.toString() };
       if (v instanceof Map) {
         return {
@@ -26,7 +45,6 @@ export function canonical(r: Replay): string {
         };
       }
       if (v instanceof Set) return { $set: [...v].sort() };
-      if (v instanceof Date) return { $date: v.toISOString() };
       return v;
     },
     1,
