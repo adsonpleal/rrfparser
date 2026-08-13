@@ -11,7 +11,7 @@ import {
   decodeSnapshot,
   toInventoryMap,
 } from "../src/index.js";
-import { loadReplayFixture } from "./load-fixture.js";
+import { FIXTURES, loadReplayFixture } from "./load-fixture.js";
 
 const items = decodeInventory(loadReplayFixture("equip-test-2.rrf"));
 
@@ -83,6 +83,61 @@ describe("cart separation on sn-buffs-potion.rrf", () => {
     for (const worn of replay.items.equipped) {
       expect(merged.get(worn.slot)).toBe(worn);
     }
+  });
+});
+
+/**
+ * Ground truth: playing wh-ilimitar.rrf back in the client renders the weapon as
+ * "+11 [C] Gakkung Primordial-LT" and every other worn piece with no [X] prefix.
+ * rAthena's enchantgrade scale is 0=none 1=D 2=C 3=B 4=A, so the weapon must
+ * read 2 and the rest 0.
+ *
+ * The trap this pins down: on that weapon the grade field and the random-option
+ * count are BOTH 2, so a single record cannot tell the two TLV tags apart. What
+ * separates them is the rest of the corpus — 845 other records where the option
+ * count is 1 or 2 and the grade is 0. Hence the second test.
+ */
+describe("enchant grade (wh-ilimitar.rrf)", () => {
+  const worn = decodeInventory(loadReplayFixture("wh-ilimitar.rrf")).equipped;
+
+  it("reads the graded weapon and leaves the ungraded gear at 0", () => {
+    const weapon = worn.find((r) => r.itemId === 700046);
+    expect(weapon).toBeDefined();
+    expect(weapon!.refine).toBe(11);
+    expect(weapon!.grade).toBe(2);
+
+    const others = worn.filter((r) => r.itemId !== 700046);
+    expect(others.length).toBeGreaterThan(0);
+    expect(others.map((r) => r.grade)).toEqual(others.map(() => 0));
+  });
+
+  it("does not simply mirror the random-option count", () => {
+    // Same weapon, 2 random options and grade C — equal by coincidence. The
+    // bag's other Gakkung also carries 2 options, and is ungraded.
+    const weapon = worn.find((r) => r.itemId === 700046)!;
+    expect(weapon.options).toHaveLength(2);
+
+    const all = decodeInventory(loadReplayFixture("wh-ilimitar.rrf")).inventory;
+    const optioned = all.filter((r) => r.options.length > 0);
+    expect(optioned.length).toBeGreaterThan(0);
+    expect(optioned.map((r) => r.grade)).toEqual(optioned.map(() => 0));
+  });
+});
+
+describe("every other fixture decodes as ungraded", () => {
+  // None of them was recorded with graded gear, so a change that starts reading
+  // the wrong TLV tag — the option count being the obvious one — shows up here
+  // as a nonzero grade rather than silently in one consumer's damage numbers.
+  it.each(FIXTURES.filter((f) => f !== "wh-ilimitar.rrf"))("%s", (name) => {
+    const items = decodeInventory(loadReplayFixture(name));
+    const every = [
+      ...items.inventory,
+      ...items.cart,
+      ...items.equipped,
+      ...items.equippedCostume,
+    ];
+    expect(every.length).toBeGreaterThan(0);
+    expect(every.filter((r) => r.grade !== 0)).toEqual([]);
   });
 });
 

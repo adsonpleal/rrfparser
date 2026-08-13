@@ -514,6 +514,7 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
             qty: ev.amount,
             equipped: 0,
             refine: ev.refine,
+            grade: 0,
             cards: [0, 0, 0, 0],
             options: [],
           });
@@ -533,6 +534,7 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
           qty: ev.amount,
           equipped: 0,
           refine: 0,
+          grade: 0,
           cards: [0, 0, 0, 0],
           options: [],
         });
@@ -569,6 +571,7 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
           equipped: ev.equipped,
           itemId: inv?.itemId ?? 0,
           refine: inv?.refine ?? 0,
+          grade: inv?.grade ?? 0,
           cards: inv ? inv.cards.filter((c) => c > 0) : [],
           options: inv?.options ?? [],
         });

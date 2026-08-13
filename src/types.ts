@@ -212,6 +212,8 @@ export type EquipChangeEvent = {
   equipped: boolean;
   itemId: number;
   refine: number;
+  /** Enchant grade resolved from the inventory snapshot (0 = none / unknown). */
+  grade: number;
   cards: number[];
   /** Random options resolved from the inventory snapshot. */
   options: RandomOption[];
@@ -316,6 +318,20 @@ export type InventoryRecord = {
    */
   equipped: number;
   refine: number;
+  /**
+   * Enchant grade ("Grau de Encantamento") — 0 = none, 1 = D, 2 = C, 3 = B,
+   * 4 = A, following rAthena's `enchantgrade`. This is the `[C]` the client
+   * prints in front of a refine, as in "+11 [C] Gakkung Primordial-LT".
+   *
+   * The letter is the consumer's business: a grade carries different bonuses
+   * per item, so the mapping to actual stats lives wherever the item table
+   * does, not here.
+   *
+   * Always 0 on the older 172-byte equip record, which ends before this field
+   * exists, and on records rebuilt from packets (item-add / item-use) — the
+   * packets do not carry it.
+   */
+  grade: number;
   /**
    * The four card/enchant sockets, **by position**, with 0 for an empty socket.
    *

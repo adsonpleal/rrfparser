@@ -21,4 +21,5 @@ export const FIXTURES = [
   "em-endow-learned-not-active.rrf",
   "hn-magic-lv1.rrf",
   "equip-test-2.rrf",
+  "wh-ilimitar.rrf",
 ] as const;

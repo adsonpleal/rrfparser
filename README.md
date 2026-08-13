@@ -81,6 +81,17 @@ rec.cards; // [0, 29660, 0, 0]               socket 0 empty, enchant in socket 1
 
 Do not filter the zeros. Which socket an enchant occupies is meaningful, and `[0, 29660, 0, 0]` collapsing to `[29660]` silently moves that enchant into socket 0 — 415 records in a 564-replay corpus have exactly this shape. If you just want a list of names, filter at your own edge.
 
+### Enchant grade
+
+`InventoryRecord.grade` is the `[C]` the client prints in front of a refine — "+11 **[C]** Gakkung Primordial-LT". It follows rAthena's `enchantgrade`: `0` none, `1` D, `2` C, `3` B, `4` A.
+
+```ts
+rec.refine; // 11
+rec.grade; //  2   → renders as [C]
+```
+
+Mapping a grade to actual stats needs the item table (each item's grade bonuses differ), so that belongs on your side. The field is `0` on the older 172-byte equip record, which ends before it, and on records rebuilt from packets — no packet carries it.
+
 ### `equipped` means "worn" only in the worn containers
 
 The bitmask is present on bag and cart records too, where it is the item's equip *location* rather than its state. Read what is actually worn from `items.equipped` and `items.equippedCostume`. Merging every container into one list — which is what the forks this library replaces did — makes a cart full of cannonballs look like the equipped ammo.

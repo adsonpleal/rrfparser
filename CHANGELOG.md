@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.0.0-rc.2
+
+### Added
+
+- **`InventoryRecord.grade` — the enchant grade** (`0` none, `1` D, `2` C, `3` B,
+  `4` A, as rAthena's `enchantgrade`). This is the `[C]` the client prints in
+  front of a refine, and every consumer that rebuilds a character from a
+  recording was losing all of its bonuses. Measured on one real build: a Grau C
+  Gakkung Primordial-LT imported ungraded put a damage simulation 12.2% low
+  unbuffed and 5.9% low under a ranged buff. `EquipChangeEvent.grade` carries
+  the same value, resolved from the snapshot like `refine` and `cards`.
+
+### Changed
+
+- **Item records are read through their TLV chain rather than at hardcoded
+  offsets.** A record is `tag u16 | len u32 | value[len]` repeated to the end of
+  the record; the reference parser this library inherited its offsets from
+  hardcoded where each field lands, which is why it stopped at the fields it
+  knew about and the grade was never reachable. The absolute offsets remain as a
+  fallback for any record whose chain does not close exactly on the record
+  boundary, so an unrecognised layout decodes no worse than before. Every field
+  of all 847 records in the fixture corpus decodes identically either way.
+
+The grade is the field immediately before the random-option **count**, and on
+the one graded item available both read `2` — the weapon is Grau C and happens
+to carry 2 random options. They are told apart by the other 845 records, where
+the count tracks the populated option entries exactly and the grade stays 0.
+`test/items.spec.ts` pins both halves of that.
+
 ## 1.0.0-rc.1
 
 First release. Merges the three forked copies of this parser that lived in
