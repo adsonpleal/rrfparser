@@ -1,6 +1,6 @@
 {
   "name": "rrfparser",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0",
   "description": "Isomorphic TypeScript parser for Ragnarok Online .rrf replay files",
   "license": "MIT",
   "author": "Adson Leal",

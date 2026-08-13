@@ -1,6 +1,10 @@
 # Changelog
 
-## 1.0.0-rc.2
+## 1.0.0
+
+First stable release — `1.0.0-rc.2` promoted with the prerelease suffix
+dropped, no code changes. The two entries below are what the rc line added on
+top of `1.0.0-rc.1`, whose notes follow.
 
 ### Added
 
