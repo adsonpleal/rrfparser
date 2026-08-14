@@ -373,12 +373,87 @@ export type ItemContainers = {
   /**
    * Item chunks that carried records whose meaning is unknown.
    *
-   * Ids 4511-4515, 4517 and 4519-4522 exist and come through empty in every
-   * replay checked so far — probably Kafra storage and the rental tabs. Keeping
-   * them instead of discarding makes labelling them later a matter of looking at
-   * what showed up here in a recording that had the container open.
+   * Ids 4511-4515, 4517 and 4519-4522 exist and come through empty (or, for
+   * 4522, with a single record the client never fills in) in every replay
+   * checked so far. They are **not** the storages: a recording taken with the
+   * Kafra and clan storages open leaves them just as empty, because the storages
+   * are never part of the snapshot — see {@link StorageSnapshot}.
    */
   unknown: Record<number, ItemRecord[]>;
+};
+
+/** Which storage a {@link StorageSnapshot} or {@link StorageChangeEvent} is about. */
+export type StorageKind = "storage" | "guildStorage";
+
+/**
+ * One item as the server listed it in a storage window.
+ *
+ * Shares {@link InventoryRecord}'s shape so the same rendering code works for a
+ * bag item and a stored one. `equipped` is always 0 (nothing in storage is worn)
+ * and `slot` is absent — storage items are addressed by {@link index}.
+ */
+export type StorageItem = InventoryRecord & {
+  /**
+   * The server's index for this item, and the handle the add/withdraw packets
+   * use.
+   *
+   * **Not a stable slot number.** It restarts at 2 for the first list of a
+   * connection but keeps counting across later opens, so the same physical
+   * storage position gets a different index each time the window is opened. Use
+   * it to correlate a {@link StorageChangeEvent} with a snapshot, not as an
+   * identity across snapshots.
+   */
+  index: number;
+};
+
+/**
+ * The contents of a storage, as the server sent them when the player opened it.
+ *
+ * The Kafra and clan storages are not in the file's item snapshot — they are
+ * only on record when the window was opened during the recording, one snapshot
+ * per open. A recording where the player never visited a Kafra has none.
+ */
+export type StorageSnapshot = {
+  kind: StorageKind;
+  /** ms into the session when the list started arriving. */
+  time: number;
+  /** Sorted by {@link StorageItem.index}. */
+  items: StorageItem[];
+  /**
+   * Slots in use and capacity, from the count packet the server sends with the
+   * list (0x00f2). `-1` when it didn't send one.
+   *
+   * `usedSlots` counts stacks, so it matches `items.length` — but it is the
+   * server's own number, and the two can disagree when a list arrives split
+   * across packets and one is truncated.
+   */
+  usedSlots: number;
+  maxSlots: number;
+};
+
+/**
+ * An item deposited into or withdrawn from a storage while it was open.
+ *
+ * Apply these in order to the last {@link StorageSnapshot} of the same `kind` to
+ * get the storage's contents at the end of the recording.
+ */
+export type StorageChangeEvent = {
+  time: number;
+  kind: StorageKind;
+  /** Matches {@link StorageItem.index} within the storage's current snapshot. */
+  index: number;
+  /** True = moved into storage; false = withdrawn. */
+  added: boolean;
+  /**
+   * On a withdrawal the packet carries only the index, so this is resolved from
+   * the running storage contents — 0 when the item was never listed.
+   */
+  itemId: number;
+  amount: number;
+  refine: number;
+  grade: number;
+  cards: [number, number, number, number];
+  options: RandomOption[];
 };
 
 export type Replay = {
@@ -429,6 +504,23 @@ export type Replay = {
   itemDeletes: ItemDeleteEvent[];
   itemAdds: ItemAddEvent[];
   equipChanges: EquipChangeEvent[];
+  /**
+   * Every storage the player opened during the recording, in the order the
+   * server sent them — one entry per open, so a storage opened twice appears
+   * twice. Empty when no storage window was opened.
+   *
+   * This is the only place the Kafra and clan storages appear: nothing in the
+   * file's containers holds them.
+   */
+  storages: StorageSnapshot[];
+  /**
+   * Deposits and withdrawals while a storage was open, in packet order.
+   *
+   * Only carries changes to a storage whose list is in {@link storages} — an
+   * add/withdraw packet the recording caught without its list cannot be
+   * attributed to a storage and is dropped.
+   */
+  storageChanges: StorageChangeEvent[];
   paramChanges: ParamChangeEvent[];
   statusEvents: StatusEvent[];
   chats: ChatEvent[];

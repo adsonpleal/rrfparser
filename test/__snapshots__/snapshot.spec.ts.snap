@@ -4308,6 +4308,8 @@ exports[`decoded output is stable > em-endow-learned-not-active.rrf 1`] = `
  "itemDeletes": [],
  "itemAdds": [],
  "equipChanges": [],
+ "storages": [],
+ "storageChanges": [],
  "paramChanges": [
   {
    "time": 1546,
@@ -10877,6 +10879,8 @@ exports[`decoded output is stable > equip-test-2.rrf 1`] = `
    "options": []
   }
  ],
+ "storages": [],
+ "storageChanges": [],
  "paramChanges": [
   {
    "time": 2470,
@@ -18892,6 +18896,8 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "options": []
   }
  ],
+ "storages": [],
+ "storageChanges": [],
  "paramChanges": [
   {
    "time": 729,
@@ -27116,6 +27122,8 @@ exports[`decoded output is stable > mergulho-test.rrf 1`] = `
  "itemDeletes": [],
  "itemAdds": [],
  "equipChanges": [],
+ "storages": [],
+ "storageChanges": [],
  "paramChanges": [
   {
    "time": 998,
@@ -30611,6 +30619,8 @@ exports[`decoded output is stable > nw-mira-pet.rrf 1`] = `
    "options": []
   }
  ],
+ "storages": [],
+ "storageChanges": [],
  "paramChanges": [
   {
    "time": 1912,
@@ -38192,6 +38202,8 @@ exports[`decoded output is stable > nw-ult.rrf 1`] = `
    "options": []
   }
  ],
+ "storages": [],
+ "storageChanges": [],
  "paramChanges": [
   {
    "time": 2843,
@@ -44670,6 +44682,8 @@ exports[`decoded output is stable > nw-ult-mira.rrf 1`] = `
    "options": []
   }
  ],
+ "storages": [],
+ "storageChanges": [],
  "paramChanges": [
   {
    "time": 2894,
@@ -51525,6 +51539,8 @@ exports[`decoded output is stable > sn-buffs-potion.rrf 1`] = `
  "itemDeletes": [],
  "itemAdds": [],
  "equipChanges": [],
+ "storages": [],
+ "storageChanges": [],
  "paramChanges": [
   {
    "time": 1699,
@@ -51682,6 +51698,5387 @@ exports[`decoded output is stable > sn-buffs-potion.rrf 1`] = `
    2435,
    2459,
    2599
+  ]
+ }
+}"
+`;
+
+exports[`decoded output is stable > storage-kafra-clan.rrf 1`] = `
+"{
+ "sessionInfo": {
+  "player": "Mercadora Sincera",
+  "map": "prt_mk",
+  "aid": 1128522,
+  "job": 5,
+  "baseLevel": 26,
+  "jobLevel": 26,
+  "recordedAt": {
+   "$localDate": "2026-08-13T18:38:48"
+  },
+  "sex": 0,
+  "hairStyle": 22,
+  "hairColor": 0,
+  "clothesColor": 0,
+  "str": 47,
+  "agi": 1,
+  "vit": 1,
+  "int": 1,
+  "dex": 1,
+  "luk": 1,
+  "gx": 283,
+  "gy": 48,
+  "option": 0,
+  "durationMs": 18990
+ },
+ "pet": {
+  "aid": 53548,
+  "name": "Neosaldina",
+  "view": 22405,
+  "level": 78,
+  "hunger": 100,
+  "intimacy": 494
+ },
+ "learnedSkills": {
+  "$map": [
+   [
+    1,
+    9
+   ],
+   [
+    36,
+    5
+   ],
+   [
+    39,
+    10
+   ],
+   [
+    41,
+    10
+   ],
+   [
+    153,
+    1
+   ],
+   [
+    154,
+    1
+   ],
+   [
+    155,
+    1
+   ]
+  ]
+ },
+ "entities": {
+  "$map": [
+   [
+    663,
+    {
+     "aid": 663,
+     "kind": "npc",
+     "view": 105,
+     "name": "\\u001cwPmqCQ\\u001c",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": -1,
+     "firstSeenMs": 8312,
+     "lastHp": -1,
+     "sex": 0,
+     "option": 0
+    }
+   ],
+   [
+    675,
+    {
+     "aid": 675,
+     "kind": "npc",
+     "view": 10249,
+     "name": "\\u001c8fmqCQ\\u001c",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": -1,
+     "firstSeenMs": 7895,
+     "lastHp": -1,
+     "sex": 0,
+     "option": 0
+    }
+   ],
+   [
+    676,
+    {
+     "aid": 676,
+     "kind": "npc",
+     "view": 10081,
+     "name": "\\u001c+/mqCQ\\u001c",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": -1,
+     "firstSeenMs": 7895,
+     "lastHp": -1,
+     "sex": 0,
+     "option": 0
+    }
+   ],
+   [
+    685,
+    {
+     "aid": 685,
+     "kind": "npc",
+     "view": 83,
+     "name": "Loja de Ferramentas",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "option": 0
+    }
+   ],
+   [
+    692,
+    {
+     "aid": 692,
+     "kind": "npc",
+     "view": 896,
+     "name": "\\u001cBvqqCQ\\u001c",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": -1,
+     "firstSeenMs": 0,
+     "lastHp": -1,
+     "sex": 0,
+     "option": 0
+    }
+   ],
+   [
+    41533,
+    {
+     "aid": 41533,
+     "kind": "pet",
+     "view": 1213,
+     "name": "Jagunço",
+     "isBoss": false,
+     "level": 81,
+     "maxHp": -1,
+     "firstSeenMs": 7895,
+     "lastHp": -1,
+     "sex": 0,
+     "option": 0
+    }
+   ],
+   [
+    45850,
+    {
+     "aid": 45850,
+     "kind": "pet",
+     "view": 22405,
+     "name": "Abelha-Rainha",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "option": 0
+    }
+   ],
+   [
+    53548,
+    {
+     "aid": 53548,
+     "kind": "pet",
+     "view": 22405,
+     "name": "Neosaldina",
+     "isBoss": true,
+     "level": 78,
+     "maxHp": -1,
+     "firstSeenMs": 0,
+     "lastHp": -1,
+     "sex": 0,
+     "option": 0
+    }
+   ],
+   [
+    57593,
+    {
+     "aid": 57593,
+     "kind": "pet",
+     "view": 21290,
+     "name": "Kiel D-01",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "option": 0
+    }
+   ],
+   [
+    1006983,
+    {
+     "aid": 1006983,
+     "kind": "pc",
+     "view": 4064,
+     "name": "sauroneide",
+     "isBoss": false,
+     "level": 136,
+     "maxHp": -1,
+     "firstSeenMs": 8095,
+     "lastHp": -1,
+     "sex": 0,
+     "hairStyle": 20,
+     "hairColor": 2,
+     "clothesColor": 0,
+     "weaponView": 1326,
+     "shieldView": 0,
+     "headTopView": 1883,
+     "headMidView": 1684,
+     "headLowView": 0,
+     "robeView": 79,
+     "option": 0
+    }
+   ],
+   [
+    1015604,
+    {
+     "aid": 1015604,
+     "kind": "pc",
+     "view": 5,
+     "name": "Tiazinha do Mercado",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 7,
+     "hairColor": 8,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 1878,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1016312,
+    {
+     "aid": 1016312,
+     "kind": "pc",
+     "view": 18,
+     "name": "Bruttus V",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 22,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 1895,
+     "headMidView": 2142,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1019776,
+    {
+     "aid": 1019776,
+     "kind": "pc",
+     "view": 4078,
+     "name": "Merc Zenilton",
+     "isBoss": false,
+     "level": 120,
+     "maxHp": -1,
+     "firstSeenMs": 7462,
+     "lastHp": -1,
+     "sex": 1,
+     "hairStyle": 15,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 0,
+     "headMidView": 2142,
+     "headLowView": 1643,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1029600,
+    {
+     "aid": 1029600,
+     "kind": "pc",
+     "view": 4011,
+     "name": "Fereis IV",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 21,
+     "hairColor": 7,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 1375,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1040453,
+    {
+     "aid": 1040453,
+     "kind": "pc",
+     "view": 4011,
+     "name": "Serge",
+     "isBoss": false,
+     "level": 95,
+     "maxHp": -1,
+     "firstSeenMs": 18755,
+     "lastHp": -1,
+     "sex": 1,
+     "hairStyle": 3,
+     "hairColor": 5,
+     "clothesColor": 0,
+     "weaponView": 1391,
+     "shieldView": 0,
+     "headTopView": 682,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1052774,
+    {
+     "aid": 1052774,
+     "kind": "pc",
+     "view": 5,
+     "name": "Buchinho",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 10,
+     "hairColor": 8,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 2804,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1063728,
+    {
+     "aid": 1063728,
+     "kind": "pc",
+     "view": 4078,
+     "name": "Thanatos Demonslayer",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 7,
+     "hairColor": 6,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 757,
+     "headMidView": 2685,
+     "headLowView": 2753,
+     "robeView": 199,
+     "option": 0
+    }
+   ],
+   [
+    1080221,
+    {
+     "aid": 1080221,
+     "kind": "pc",
+     "view": 4078,
+     "name": "...WickeD...",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 15,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 367,
+     "headMidView": 91,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1111068,
+    {
+     "aid": 1111068,
+     "kind": "pc",
+     "view": 10,
+     "name": "Mecânica da Shopee",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 21,
+     "hairColor": 7,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 167,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1128522,
+    {
+     "aid": 1128522,
+     "kind": "pc",
+     "view": 5,
+     "name": "Mercadora Sincera",
+     "isBoss": false,
+     "level": 26,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 22
+    }
+   ],
+   [
+    1186896,
+    {
+     "aid": 1186896,
+     "kind": "pc",
+     "view": 5,
+     "name": "Merchtian",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 0,
+     "hairColor": 2,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 872,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1296546,
+    {
+     "aid": 1296546,
+     "kind": "pc",
+     "view": 18,
+     "name": "DailyTrader",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 15,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 0,
+     "headMidView": 26,
+     "headLowView": 1981,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1337345,
+    {
+     "aid": 1337345,
+     "kind": "pc",
+     "view": 4011,
+     "name": "Mi4 Khalifa",
+     "isBoss": false,
+     "level": 93,
+     "maxHp": -1,
+     "firstSeenMs": 0,
+     "lastHp": -1,
+     "sex": 0,
+     "hairStyle": 3,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 1394,
+     "shieldView": 0,
+     "headTopView": 633,
+     "headMidView": 1008,
+     "headLowView": 0,
+     "robeView": 79,
+     "option": 0
+    }
+   ],
+   [
+    1338703,
+    {
+     "aid": 1338703,
+     "kind": "pc",
+     "view": 4078,
+     "name": "DuarteMercadora",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 10,
+     "hairColor": 6,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 1443,
+     "headMidView": 925,
+     "headLowView": 2648,
+     "robeView": 84,
+     "option": 0
+    }
+   ],
+   [
+    1340957,
+    {
+     "aid": 1340957,
+     "kind": "pc",
+     "view": 4078,
+     "name": "_Adulterada",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 7,
+     "hairColor": 8,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 131,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1384894,
+    {
+     "aid": 1384894,
+     "kind": "pc",
+     "view": 4064,
+     "name": "Daniela Marretão",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 21,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 131,
+     "headMidView": 0,
+     "headLowView": 571,
+     "robeView": 13,
+     "option": 0
+    }
+   ],
+   [
+    1388294,
+    {
+     "aid": 1388294,
+     "kind": "pc",
+     "view": 4011,
+     "name": "Vendedor Ambulante.",
+     "isBoss": false,
+     "level": 99,
+     "maxHp": -1,
+     "firstSeenMs": 0,
+     "lastHp": -1,
+     "sex": 1,
+     "hairStyle": 4,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 1201,
+     "shieldView": 0,
+     "headTopView": 0,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 136,
+     "option": 0
+    }
+   ],
+   [
+    1392627,
+    {
+     "aid": 1392627,
+     "kind": "pc",
+     "view": 5,
+     "name": "Dani Store",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 21,
+     "hairColor": 8,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 34,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1454677,
+    {
+     "aid": 1454677,
+     "kind": "pc",
+     "view": 4078,
+     "name": "Al Kimico",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 25,
+     "hairColor": 5,
+     "clothesColor": 2,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 0,
+     "headMidView": 2263,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1511598,
+    {
+     "aid": 1511598,
+     "kind": "pc",
+     "view": 5,
+     "name": "Adam Clays",
+     "isBoss": false,
+     "level": 34,
+     "maxHp": -1,
+     "firstSeenMs": 0,
+     "lastHp": -1,
+     "sex": 1,
+     "hairStyle": 8,
+     "hairColor": 5,
+     "clothesColor": 0,
+     "weaponView": 1381,
+     "shieldView": 0,
+     "headTopView": 393,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1514553,
+    {
+     "aid": 1514553,
+     "kind": "pc",
+     "view": 18,
+     "name": "Receptora Tora",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 21,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 547,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1530055,
+    {
+     "aid": 1530055,
+     "kind": "pc",
+     "view": 5,
+     "name": "Senhor dos Lucros",
+     "isBoss": false,
+     "level": 35,
+     "maxHp": -1,
+     "firstSeenMs": 8095,
+     "lastHp": -1,
+     "sex": 1,
+     "hairStyle": 8,
+     "hairColor": 3,
+     "clothesColor": 0,
+     "weaponView": 1360,
+     "shieldView": 0,
+     "headTopView": 0,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1562505,
+    {
+     "aid": 1562505,
+     "kind": "pc",
+     "view": 5,
+     "name": "Ghandara",
+     "isBoss": false,
+     "level": 43,
+     "maxHp": -1,
+     "firstSeenMs": 7677,
+     "lastHp": -1,
+     "sex": 0,
+     "hairStyle": 3,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 1307,
+     "shieldView": 28902,
+     "headTopView": 650,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1572342,
+    {
+     "aid": 1572342,
+     "kind": "pc",
+     "view": 10,
+     "name": "rnevs44",
+     "isBoss": false,
+     "level": 79,
+     "maxHp": -1,
+     "firstSeenMs": 8512,
+     "lastHp": -1,
+     "sex": 1,
+     "hairStyle": 1,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 1398,
+     "shieldView": 0,
+     "headTopView": 0,
+     "headMidView": 0,
+     "headLowView": 1486,
+     "robeView": 195,
+     "option": 0
+    }
+   ],
+   [
+    1676707,
+    {
+     "aid": 1676707,
+     "kind": "pc",
+     "view": 4078,
+     "name": "Jackson Five Motoboy",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 23,
+     "hairColor": 7,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 0,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1755815,
+    {
+     "aid": 1755815,
+     "kind": "pc",
+     "view": 4078,
+     "name": "JesuuusOFOGUETE",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 2,
+     "hairColor": 6,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 0,
+     "headMidView": 92,
+     "headLowView": 25,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1758973,
+    {
+     "aid": 1758973,
+     "kind": "pc",
+     "view": 5,
+     "name": "VendeHamburguer",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 9,
+     "hairColor": 3,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 1381,
+     "headMidView": 1241,
+     "headLowView": 188,
+     "robeView": 1,
+     "option": 0
+    }
+   ],
+   [
+    1822787,
+    {
+     "aid": 1822787,
+     "kind": "pc",
+     "view": 4011,
+     "name": "PRETOSMITH C0C4",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 1,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 1895,
+     "headMidView": 12,
+     "headLowView": 56,
+     "robeView": 51,
+     "option": 0
+    }
+   ],
+   [
+    1846773,
+    {
+     "aid": 1846773,
+     "kind": "pc",
+     "view": 4078,
+     "name": "Bioquímica Pobre",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 21,
+     "hairColor": 7,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 1024,
+     "headMidView": 2142,
+     "headLowView": 1643,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1858309,
+    {
+     "aid": 1858309,
+     "kind": "pc",
+     "view": 4011,
+     "name": "Cash Bothrops",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 7,
+     "hairColor": 4,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 1785,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1862514,
+    {
+     "aid": 1862514,
+     "kind": "pc",
+     "view": 10,
+     "name": "Shopee Time",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 0,
+     "hairStyle": 22,
+     "hairColor": 4,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 465,
+     "headMidView": 0,
+     "headLowView": 54,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1871708,
+    {
+     "aid": 1871708,
+     "kind": "pc",
+     "view": 4011,
+     "name": "BesekerX",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 15,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 0,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ],
+   [
+    1890101,
+    {
+     "aid": 1890101,
+     "kind": "pc",
+     "view": 5,
+     "name": "Budega do Zé",
+     "isBoss": false,
+     "level": 0,
+     "maxHp": 0,
+     "firstSeenMs": 0,
+     "lastHp": 0,
+     "sex": 1,
+     "hairStyle": 1,
+     "hairColor": 0,
+     "clothesColor": 0,
+     "weaponView": 0,
+     "shieldView": 0,
+     "headTopView": 872,
+     "headMidView": 0,
+     "headLowView": 0,
+     "robeView": 0,
+     "option": 0
+    }
+   ]
+  ]
+ },
+ "damage": [],
+ "kills": [],
+ "vanishes": [
+  {
+   "time": 7677,
+   "aid": 1755815,
+   "kind": 0
+  },
+  {
+   "time": 7677,
+   "aid": 1514553,
+   "kind": 0
+  },
+  {
+   "time": 7895,
+   "aid": 1511598,
+   "kind": 0
+  },
+  {
+   "time": 8095,
+   "aid": 1388294,
+   "kind": 0
+  },
+  {
+   "time": 8312,
+   "aid": 1676707,
+   "kind": 0
+  },
+  {
+   "time": 8746,
+   "aid": 1384894,
+   "kind": 0
+  },
+  {
+   "time": 8913,
+   "aid": 1337345,
+   "kind": 0
+  },
+  {
+   "time": 8913,
+   "aid": 692,
+   "kind": 0
+  },
+  {
+   "time": 17855,
+   "aid": 1572342,
+   "kind": 0
+  },
+  {
+   "time": 18322,
+   "aid": 675,
+   "kind": 0
+  },
+  {
+   "time": 18322,
+   "aid": 676,
+   "kind": 0
+  },
+  {
+   "time": 18473,
+   "aid": 663,
+   "kind": 0
+  }
+ ],
+ "optionChanges": [
+  {
+   "time": 0,
+   "aid": 1128522,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 53548,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1511598,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1890101,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1862514,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1029600,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1296546,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1080221,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1758973,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1846773,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1871708,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 685,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1822787,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1388294,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1858309,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1337345,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 692,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1755815,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1111068,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1392627,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1514553,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1340957,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1384894,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1052774,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1676707,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1338703,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 57593,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1016312,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1186896,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1063728,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1454677,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 1015604,
+   "option": 0
+  },
+  {
+   "time": 0,
+   "aid": 45850,
+   "option": 0
+  },
+  {
+   "time": 7462,
+   "aid": 1019776,
+   "option": 0
+  },
+  {
+   "time": 7478,
+   "aid": 53548,
+   "option": 0
+  },
+  {
+   "time": 7677,
+   "aid": 1562505,
+   "option": 0
+  },
+  {
+   "time": 7895,
+   "aid": 675,
+   "option": 0
+  },
+  {
+   "time": 7895,
+   "aid": 676,
+   "option": 0
+  },
+  {
+   "time": 7895,
+   "aid": 41533,
+   "option": 0
+  },
+  {
+   "time": 8095,
+   "aid": 1006983,
+   "option": 0
+  },
+  {
+   "time": 8095,
+   "aid": 1530055,
+   "option": 0
+  },
+  {
+   "time": 8146,
+   "aid": 53548,
+   "option": 0
+  },
+  {
+   "time": 8312,
+   "aid": 663,
+   "option": 0
+  },
+  {
+   "time": 8512,
+   "aid": 1572342,
+   "option": 0
+  },
+  {
+   "time": 9230,
+   "aid": 53548,
+   "option": 0
+  },
+  {
+   "time": 17704,
+   "aid": 1337345,
+   "option": 0
+  },
+  {
+   "time": 17704,
+   "aid": 692,
+   "option": 0
+  },
+  {
+   "time": 17721,
+   "aid": 53548,
+   "option": 0
+  },
+  {
+   "time": 17972,
+   "aid": 53548,
+   "option": 0
+  },
+  {
+   "time": 18155,
+   "aid": 1388294,
+   "option": 0
+  },
+  {
+   "time": 18322,
+   "aid": 1511598,
+   "option": 0
+  },
+  {
+   "time": 18639,
+   "aid": 53548,
+   "option": 0
+  },
+  {
+   "time": 18755,
+   "aid": 1040453,
+   "option": 0
+  }
+ ],
+ "skillCasts": [],
+ "skillUses": [],
+ "mobHp": [],
+ "mapChanges": [],
+ "moves": [
+  {
+   "time": 7344,
+   "aid": 1128522,
+   "from": {
+    "gx": 283,
+    "gy": 48
+   },
+   "to": {
+    "gx": 290,
+    "gy": 56
+   },
+   "startTime": 836054623
+  },
+  {
+   "time": 7478,
+   "aid": 53548,
+   "from": {
+    "gx": 281,
+    "gy": 50
+   },
+   "to": {
+    "gx": 285,
+    "gy": 47
+   },
+   "startTime": 0
+  },
+  {
+   "time": 8146,
+   "aid": 53548,
+   "from": {
+    "gx": 284,
+    "gy": 47
+   },
+   "to": {
+    "gx": 289,
+    "gy": 53
+   },
+   "startTime": 0
+  },
+  {
+   "time": 9230,
+   "aid": 53548,
+   "from": {
+    "gx": 289,
+    "gy": 52
+   },
+   "to": {
+    "gx": 292,
+    "gy": 55
+   },
+   "startTime": 0
+  },
+  {
+   "time": 17571,
+   "aid": 1128522,
+   "from": {
+    "gx": 290,
+    "gy": 56
+   },
+   "to": {
+    "gx": 284,
+    "gy": 55
+   },
+   "startTime": 836064846
+  },
+  {
+   "time": 17721,
+   "aid": 53548,
+   "from": {
+    "gx": 292,
+    "gy": 55
+   },
+   "to": {
+    "gx": 290,
+    "gy": 56
+   },
+   "startTime": 0
+  },
+  {
+   "time": 17972,
+   "aid": 53548,
+   "from": {
+    "gx": 291,
+    "gy": 56
+   },
+   "to": {
+    "gx": 286,
+    "gy": 57
+   },
+   "startTime": 0
+  },
+  {
+   "time": 18055,
+   "aid": 1128522,
+   "from": {
+    "gx": 287,
+    "gy": 55
+   },
+   "to": {
+    "gx": 282,
+    "gy": 55
+   },
+   "startTime": 836065323
+  },
+  {
+   "time": 18639,
+   "aid": 53548,
+   "from": {
+    "gx": 287,
+    "gy": 57
+   },
+   "to": {
+    "gx": 282,
+    "gy": 53
+   },
+   "startTime": 0
+  }
+ ],
+ "positions": [
+  {
+   "time": 0,
+   "aid": 1128522,
+   "gx": 283,
+   "gy": 48
+  },
+  {
+   "time": 0,
+   "aid": 53548,
+   "gx": 281,
+   "gy": 50
+  },
+  {
+   "time": 0,
+   "aid": 1511598,
+   "gx": 271,
+   "gy": 59
+  },
+  {
+   "time": 0,
+   "aid": 1890101,
+   "gx": 289,
+   "gy": 59
+  },
+  {
+   "time": 0,
+   "aid": 1862514,
+   "gx": 290,
+   "gy": 55
+  },
+  {
+   "time": 0,
+   "aid": 1029600,
+   "gx": 289,
+   "gy": 55
+  },
+  {
+   "time": 0,
+   "aid": 1296546,
+   "gx": 286,
+   "gy": 55
+  },
+  {
+   "time": 0,
+   "aid": 1080221,
+   "gx": 286,
+   "gy": 53
+  },
+  {
+   "time": 0,
+   "aid": 1758973,
+   "gx": 291,
+   "gy": 51
+  },
+  {
+   "time": 0,
+   "aid": 1846773,
+   "gx": 285,
+   "gy": 50
+  },
+  {
+   "time": 0,
+   "aid": 1871708,
+   "gx": 295,
+   "gy": 51
+  },
+  {
+   "time": 0,
+   "aid": 685,
+   "gx": 294,
+   "gy": 47
+  },
+  {
+   "time": 0,
+   "aid": 1822787,
+   "gx": 276,
+   "gy": 46
+  },
+  {
+   "time": 0,
+   "aid": 1388294,
+   "gx": 272,
+   "gy": 46
+  },
+  {
+   "time": 0,
+   "aid": 1858309,
+   "gx": 283,
+   "gy": 43
+  },
+  {
+   "time": 0,
+   "aid": 1337345,
+   "gx": 279,
+   "gy": 41
+  },
+  {
+   "time": 0,
+   "aid": 692,
+   "gx": 288,
+   "gy": 41
+  },
+  {
+   "time": 0,
+   "aid": 1755815,
+   "gx": 277,
+   "gy": 35
+  },
+  {
+   "time": 0,
+   "aid": 1111068,
+   "gx": 277,
+   "gy": 51
+  },
+  {
+   "time": 0,
+   "aid": 1392627,
+   "gx": 277,
+   "gy": 50
+  },
+  {
+   "time": 0,
+   "aid": 1514553,
+   "gx": 272,
+   "gy": 35
+  },
+  {
+   "time": 0,
+   "aid": 1340957,
+   "gx": 278,
+   "gy": 43
+  },
+  {
+   "time": 0,
+   "aid": 1384894,
+   "gx": 277,
+   "gy": 40
+  },
+  {
+   "time": 0,
+   "aid": 1052774,
+   "gx": 292,
+   "gy": 56
+  },
+  {
+   "time": 0,
+   "aid": 1676707,
+   "gx": 281,
+   "gy": 38
+  },
+  {
+   "time": 0,
+   "aid": 1338703,
+   "gx": 290,
+   "gy": 47
+  },
+  {
+   "time": 0,
+   "aid": 57593,
+   "gx": 291,
+   "gy": 46
+  },
+  {
+   "time": 0,
+   "aid": 1016312,
+   "gx": 294,
+   "gy": 57
+  },
+  {
+   "time": 0,
+   "aid": 1186896,
+   "gx": 296,
+   "gy": 54
+  },
+  {
+   "time": 0,
+   "aid": 1063728,
+   "gx": 282,
+   "gy": 60
+  },
+  {
+   "time": 0,
+   "aid": 1454677,
+   "gx": 293,
+   "gy": 60
+  },
+  {
+   "time": 0,
+   "aid": 1015604,
+   "gx": 290,
+   "gy": 62
+  },
+  {
+   "time": 0,
+   "aid": 45850,
+   "gx": 282,
+   "gy": 62
+  },
+  {
+   "time": 7462,
+   "aid": 1019776,
+   "gx": 294,
+   "gy": 63
+  },
+  {
+   "time": 7478,
+   "aid": 53548,
+   "gx": 281,
+   "gy": 50
+  },
+  {
+   "time": 7677,
+   "aid": 1562505,
+   "gx": 286,
+   "gy": 64
+  },
+  {
+   "time": 7895,
+   "aid": 675,
+   "gx": 300,
+   "gy": 64
+  },
+  {
+   "time": 7895,
+   "aid": 676,
+   "gx": 300,
+   "gy": 55
+  },
+  {
+   "time": 7895,
+   "aid": 41533,
+   "gx": 284,
+   "gy": 65
+  },
+  {
+   "time": 8095,
+   "aid": 1006983,
+   "gx": 286,
+   "gy": 66
+  },
+  {
+   "time": 8095,
+   "aid": 1530055,
+   "gx": 280,
+   "gy": 66
+  },
+  {
+   "time": 8146,
+   "aid": 53548,
+   "gx": 284,
+   "gy": 47
+  },
+  {
+   "time": 8312,
+   "aid": 663,
+   "gx": 299,
+   "gy": 67
+  },
+  {
+   "time": 8512,
+   "aid": 1572342,
+   "gx": 303,
+   "gy": 49
+  },
+  {
+   "time": 9230,
+   "aid": 53548,
+   "gx": 289,
+   "gy": 52
+  },
+  {
+   "time": 17704,
+   "aid": 1337345,
+   "gx": 279,
+   "gy": 41
+  },
+  {
+   "time": 17704,
+   "aid": 692,
+   "gx": 288,
+   "gy": 41
+  },
+  {
+   "time": 17721,
+   "aid": 53548,
+   "gx": 292,
+   "gy": 55
+  },
+  {
+   "time": 17972,
+   "aid": 53548,
+   "gx": 291,
+   "gy": 56
+  },
+  {
+   "time": 18155,
+   "aid": 1388294,
+   "gx": 272,
+   "gy": 46
+  },
+  {
+   "time": 18322,
+   "aid": 1511598,
+   "gx": 271,
+   "gy": 59
+  },
+  {
+   "time": 18639,
+   "aid": 53548,
+   "gx": 287,
+   "gy": 57
+  },
+  {
+   "time": 18755,
+   "aid": 1040453,
+   "gx": 268,
+   "gy": 53
+  }
+ ],
+ "items": {
+  "inventory": [
+   {
+    "slot": 3,
+    "itemId": 11567,
+    "qty": 272,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 4,
+    "itemId": 12323,
+    "qty": 42,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 5,
+    "itemId": 12324,
+    "qty": 12,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 6,
+    "itemId": 12325,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 7,
+    "itemId": 22508,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 8,
+    "itemId": 12580,
+    "qty": 27,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 9,
+    "itemId": 100620,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 10,
+    "itemId": 1001669,
+    "qty": 15,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 11,
+    "itemId": 100011,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 12,
+    "itemId": 23250,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 13,
+    "itemId": 4033,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 14,
+    "itemId": 4009,
+    "qty": 3,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 15,
+    "itemId": 4004,
+    "qty": 4,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 16,
+    "itemId": 4029,
+    "qty": 3,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 17,
+    "itemId": 4012,
+    "qty": 3,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 18,
+    "itemId": 4048,
+    "qty": 3,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 19,
+    "itemId": 4016,
+    "qty": 5,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 20,
+    "itemId": 27102,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 21,
+    "itemId": 4008,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 22,
+    "itemId": 4022,
+    "qty": 3,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 23,
+    "itemId": 4020,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 24,
+    "itemId": 4010,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 25,
+    "itemId": 4036,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 26,
+    "itemId": 4019,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 27,
+    "itemId": 4002,
+    "qty": 4,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 28,
+    "itemId": 4557,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 29,
+    "itemId": 4110,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 30,
+    "itemId": 4436,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 31,
+    "itemId": 4545,
+    "qty": 3,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 32,
+    "itemId": 4215,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 33,
+    "itemId": 4447,
+    "qty": 4,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 34,
+    "itemId": 4422,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 35,
+    "itemId": 4006,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 36,
+    "itemId": 4670,
+    "qty": 4,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 37,
+    "itemId": 4369,
+    "qty": 5,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 38,
+    "itemId": 4442,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 39,
+    "itemId": 4669,
+    "qty": 5,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 40,
+    "itemId": 4037,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 41,
+    "itemId": 4395,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 42,
+    "itemId": 300019,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 43,
+    "itemId": 4015,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 44,
+    "itemId": 4183,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 45,
+    "itemId": 4406,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 46,
+    "itemId": 4368,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 47,
+    "itemId": 4659,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 48,
+    "itemId": 4173,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 49,
+    "itemId": 4190,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 50,
+    "itemId": 4228,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 51,
+    "itemId": 4001,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 52,
+    "itemId": 4028,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 53,
+    "itemId": 4090,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 54,
+    "itemId": 4385,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 55,
+    "itemId": 4041,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 56,
+    "itemId": 4011,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 57,
+    "itemId": 27349,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 58,
+    "itemId": 4081,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 59,
+    "itemId": 4073,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 60,
+    "itemId": 4424,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 61,
+    "itemId": 4024,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 62,
+    "itemId": 25739,
+    "qty": 11,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 63,
+    "itemId": 23720,
+    "qty": 3,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 64,
+    "itemId": 4341,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 65,
+    "itemId": 18119,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": [
+     {
+      "id": 37,
+      "value": 14,
+      "param": 0
+     },
+     {
+      "id": 164,
+      "value": 16,
+      "param": 0
+     }
+    ]
+   },
+   {
+    "slot": 66,
+    "itemId": 18119,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 4,
+    "grade": 0,
+    "cards": [
+     4115,
+     0,
+     0,
+     0
+    ],
+    "options": [
+     {
+      "id": 55,
+      "value": 19,
+      "param": 0
+     },
+     {
+      "id": 164,
+      "value": 14,
+      "param": 0
+     }
+    ]
+   },
+   {
+    "slot": 67,
+    "itemId": 24097,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 68,
+    "itemId": 18119,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": [
+     {
+      "id": 51,
+      "value": 10,
+      "param": 0
+     },
+     {
+      "id": 164,
+      "value": 20,
+      "param": 0
+     }
+    ]
+   },
+   {
+    "slot": 69,
+    "itemId": 4101,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 70,
+    "itemId": 27386,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 71,
+    "itemId": 4166,
+    "qty": 3,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 72,
+    "itemId": 4026,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 73,
+    "itemId": 4434,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 74,
+    "itemId": 4656,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 75,
+    "itemId": 9193,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     3,
+     1
+    ],
+    "options": []
+   },
+   {
+    "slot": 76,
+    "itemId": 643,
+    "qty": 2,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 77,
+    "itemId": 25377,
+    "qty": 589,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 80,
+    "itemId": 4661,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 83,
+    "itemId": 19824,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   }
+  ],
+  "cart": [
+   {
+    "slot": 18,
+    "itemId": 4082,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 19,
+    "itemId": 4074,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 20,
+    "itemId": 300256,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 21,
+    "itemId": 400181,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 22,
+    "itemId": 4435,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 23,
+    "itemId": 24560,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 24,
+    "itemId": 4627,
+    "qty": 4,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 25,
+    "itemId": 4030,
+    "qty": 3,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 26,
+    "itemId": 24615,
+    "qty": 1,
+    "equipped": 0,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   }
+  ],
+  "equipped": [
+   {
+    "slot": 78,
+    "itemId": 2301,
+    "qty": 1,
+    "equipped": 16,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   },
+   {
+    "slot": 79,
+    "itemId": 1381,
+    "qty": 1,
+    "equipped": 34,
+    "refine": 0,
+    "grade": 0,
+    "cards": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "options": []
+   }
+  ],
+  "equippedCostume": [],
+  "unknown": {}
+ },
+ "initialInventory": {
+  "$map": [
+   [
+    3,
+    {
+     "slot": 3,
+     "itemId": 11567,
+     "qty": 272,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    4,
+    {
+     "slot": 4,
+     "itemId": 12323,
+     "qty": 42,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    5,
+    {
+     "slot": 5,
+     "itemId": 12324,
+     "qty": 12,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    6,
+    {
+     "slot": 6,
+     "itemId": 12325,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    7,
+    {
+     "slot": 7,
+     "itemId": 22508,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    8,
+    {
+     "slot": 8,
+     "itemId": 12580,
+     "qty": 27,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    9,
+    {
+     "slot": 9,
+     "itemId": 100620,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    10,
+    {
+     "slot": 10,
+     "itemId": 1001669,
+     "qty": 15,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    11,
+    {
+     "slot": 11,
+     "itemId": 100011,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    12,
+    {
+     "slot": 12,
+     "itemId": 23250,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    13,
+    {
+     "slot": 13,
+     "itemId": 4033,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    14,
+    {
+     "slot": 14,
+     "itemId": 4009,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    15,
+    {
+     "slot": 15,
+     "itemId": 4004,
+     "qty": 4,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    16,
+    {
+     "slot": 16,
+     "itemId": 4029,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    17,
+    {
+     "slot": 17,
+     "itemId": 4012,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    18,
+    {
+     "slot": 18,
+     "itemId": 4048,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    19,
+    {
+     "slot": 19,
+     "itemId": 4016,
+     "qty": 5,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    20,
+    {
+     "slot": 20,
+     "itemId": 27102,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    21,
+    {
+     "slot": 21,
+     "itemId": 4008,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    22,
+    {
+     "slot": 22,
+     "itemId": 4022,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    23,
+    {
+     "slot": 23,
+     "itemId": 4020,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    24,
+    {
+     "slot": 24,
+     "itemId": 4010,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    25,
+    {
+     "slot": 25,
+     "itemId": 4036,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    26,
+    {
+     "slot": 26,
+     "itemId": 4019,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    27,
+    {
+     "slot": 27,
+     "itemId": 4002,
+     "qty": 4,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    28,
+    {
+     "slot": 28,
+     "itemId": 4557,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    29,
+    {
+     "slot": 29,
+     "itemId": 4110,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    30,
+    {
+     "slot": 30,
+     "itemId": 4436,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    31,
+    {
+     "slot": 31,
+     "itemId": 4545,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    32,
+    {
+     "slot": 32,
+     "itemId": 4215,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    33,
+    {
+     "slot": 33,
+     "itemId": 4447,
+     "qty": 4,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    34,
+    {
+     "slot": 34,
+     "itemId": 4422,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    35,
+    {
+     "slot": 35,
+     "itemId": 4006,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    36,
+    {
+     "slot": 36,
+     "itemId": 4670,
+     "qty": 4,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    37,
+    {
+     "slot": 37,
+     "itemId": 4369,
+     "qty": 5,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    38,
+    {
+     "slot": 38,
+     "itemId": 4442,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    39,
+    {
+     "slot": 39,
+     "itemId": 4669,
+     "qty": 5,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    40,
+    {
+     "slot": 40,
+     "itemId": 4037,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    41,
+    {
+     "slot": 41,
+     "itemId": 4395,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    42,
+    {
+     "slot": 42,
+     "itemId": 300019,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    43,
+    {
+     "slot": 43,
+     "itemId": 4015,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    44,
+    {
+     "slot": 44,
+     "itemId": 4183,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    45,
+    {
+     "slot": 45,
+     "itemId": 4406,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    46,
+    {
+     "slot": 46,
+     "itemId": 4368,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    47,
+    {
+     "slot": 47,
+     "itemId": 4659,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    48,
+    {
+     "slot": 48,
+     "itemId": 4173,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    49,
+    {
+     "slot": 49,
+     "itemId": 4190,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    50,
+    {
+     "slot": 50,
+     "itemId": 4228,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    51,
+    {
+     "slot": 51,
+     "itemId": 4001,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    52,
+    {
+     "slot": 52,
+     "itemId": 4028,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    53,
+    {
+     "slot": 53,
+     "itemId": 4090,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    54,
+    {
+     "slot": 54,
+     "itemId": 4385,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    55,
+    {
+     "slot": 55,
+     "itemId": 4041,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    56,
+    {
+     "slot": 56,
+     "itemId": 4011,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    57,
+    {
+     "slot": 57,
+     "itemId": 27349,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    58,
+    {
+     "slot": 58,
+     "itemId": 4081,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    59,
+    {
+     "slot": 59,
+     "itemId": 4073,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    60,
+    {
+     "slot": 60,
+     "itemId": 4424,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    61,
+    {
+     "slot": 61,
+     "itemId": 4024,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    62,
+    {
+     "slot": 62,
+     "itemId": 25739,
+     "qty": 11,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    63,
+    {
+     "slot": 63,
+     "itemId": 23720,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    64,
+    {
+     "slot": 64,
+     "itemId": 4341,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    65,
+    {
+     "slot": 65,
+     "itemId": 18119,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": [
+      {
+       "id": 37,
+       "value": 14,
+       "param": 0
+      },
+      {
+       "id": 164,
+       "value": 16,
+       "param": 0
+      }
+     ]
+    }
+   ],
+   [
+    66,
+    {
+     "slot": 66,
+     "itemId": 18119,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 4,
+     "grade": 0,
+     "cards": [
+      4115,
+      0,
+      0,
+      0
+     ],
+     "options": [
+      {
+       "id": 55,
+       "value": 19,
+       "param": 0
+      },
+      {
+       "id": 164,
+       "value": 14,
+       "param": 0
+      }
+     ]
+    }
+   ],
+   [
+    67,
+    {
+     "slot": 67,
+     "itemId": 24097,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    68,
+    {
+     "slot": 68,
+     "itemId": 18119,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": [
+      {
+       "id": 51,
+       "value": 10,
+       "param": 0
+      },
+      {
+       "id": 164,
+       "value": 20,
+       "param": 0
+      }
+     ]
+    }
+   ],
+   [
+    69,
+    {
+     "slot": 69,
+     "itemId": 4101,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    70,
+    {
+     "slot": 70,
+     "itemId": 27386,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    71,
+    {
+     "slot": 71,
+     "itemId": 4166,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    72,
+    {
+     "slot": 72,
+     "itemId": 4026,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    73,
+    {
+     "slot": 73,
+     "itemId": 4434,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    74,
+    {
+     "slot": 74,
+     "itemId": 4656,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    75,
+    {
+     "slot": 75,
+     "itemId": 9193,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      3,
+      1
+     ],
+     "options": []
+    }
+   ],
+   [
+    76,
+    {
+     "slot": 76,
+     "itemId": 643,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    77,
+    {
+     "slot": 77,
+     "itemId": 25377,
+     "qty": 589,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    78,
+    {
+     "slot": 78,
+     "itemId": 2301,
+     "qty": 1,
+     "equipped": 16,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    79,
+    {
+     "slot": 79,
+     "itemId": 1381,
+     "qty": 1,
+     "equipped": 34,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    80,
+    {
+     "slot": 80,
+     "itemId": 4661,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   [
+    83,
+    {
+     "slot": 83,
+     "itemId": 19824,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ]
+  ]
+ },
+ "itemDeletes": [],
+ "itemAdds": [],
+ "equipChanges": [],
+ "storages": [
+  {
+   "kind": "guildStorage",
+   "time": 2958,
+   "items": [
+    {
+     "index": 6,
+     "itemId": 578,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 7,
+     "itemId": 12580,
+     "qty": 140,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   "usedSlots": 2,
+   "maxSlots": 200
+  },
+  {
+   "kind": "storage",
+   "time": 15069,
+   "items": [
+    {
+     "index": 8,
+     "itemId": 11568,
+     "qty": 100,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 9,
+     "itemId": 11572,
+     "qty": 70,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 10,
+     "itemId": 921,
+     "qty": 2,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 11,
+     "itemId": 25098,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 12,
+     "itemId": 1000274,
+     "qty": 10,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 13,
+     "itemId": 611,
+     "qty": 95,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 14,
+     "itemId": 501,
+     "qty": 7,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 15,
+     "itemId": 23012,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 16,
+     "itemId": 100913,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 17,
+     "itemId": 12264,
+     "qty": 10,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 18,
+     "itemId": 23177,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 19,
+     "itemId": 12208,
+     "qty": 5,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 20,
+     "itemId": 23899,
+     "qty": 8,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 21,
+     "itemId": 100333,
+     "qty": 3,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 22,
+     "itemId": 100680,
+     "qty": 8,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 23,
+     "itemId": 23898,
+     "qty": 6,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 24,
+     "itemId": 100061,
+     "qty": 5,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 25,
+     "itemId": 9610,
+     "qty": 17,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 26,
+     "itemId": 12516,
+     "qty": 17,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 27,
+     "itemId": 12515,
+     "qty": 17,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 28,
+     "itemId": 12523,
+     "qty": 6,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 29,
+     "itemId": 12523,
+     "qty": 6,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 30,
+     "itemId": 23042,
+     "qty": 26,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 31,
+     "itemId": 12766,
+     "qty": 5,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 32,
+     "itemId": 22753,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 33,
+     "itemId": 22754,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 34,
+     "itemId": 22755,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 35,
+     "itemId": 578,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 36,
+     "itemId": 601,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 37,
+     "itemId": 25464,
+     "qty": 18,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 38,
+     "itemId": 1001669,
+     "qty": 45,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 39,
+     "itemId": 810,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 40,
+     "itemId": 6316,
+     "qty": 11,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 41,
+     "itemId": 919,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    },
+    {
+     "index": 42,
+     "itemId": 948,
+     "qty": 1,
+     "equipped": 0,
+     "refine": 0,
+     "grade": 0,
+     "cards": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "options": []
+    }
+   ],
+   "usedSlots": 35,
+   "maxSlots": 300
+  }
+ ],
+ "storageChanges": [],
+ "paramChanges": [],
+ "statusEvents": [
+  {
+   "time": 0,
+   "statusId": 673,
+   "aid": 1128522,
+   "isOn": true,
+   "totalMs": 9999,
+   "leftMs": 9999
+  },
+  {
+   "time": 0,
+   "statusId": 802,
+   "aid": 1128522,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 0
+  },
+  {
+   "time": 7462,
+   "statusId": 673,
+   "aid": 1019776,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  },
+  {
+   "time": 7677,
+   "statusId": 673,
+   "aid": 1562505,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  },
+  {
+   "time": 8095,
+   "statusId": 673,
+   "aid": 1006983,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  },
+  {
+   "time": 8095,
+   "statusId": 622,
+   "aid": 1530055,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  },
+  {
+   "time": 8095,
+   "statusId": 673,
+   "aid": 1530055,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  },
+  {
+   "time": 8512,
+   "statusId": 673,
+   "aid": 1572342,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  },
+  {
+   "time": 12184,
+   "statusId": 36,
+   "aid": 1186896,
+   "isOn": true,
+   "totalMs": 9999,
+   "leftMs": 9999
+  },
+  {
+   "time": 17704,
+   "statusId": 673,
+   "aid": 1337345,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  },
+  {
+   "time": 18155,
+   "statusId": 673,
+   "aid": 1388294,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  },
+  {
+   "time": 18322,
+   "statusId": 673,
+   "aid": 1511598,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  },
+  {
+   "time": 18755,
+   "statusId": 673,
+   "aid": 1040453,
+   "isOn": true,
+   "totalMs": 0,
+   "leftMs": 9999
+  }
+ ],
+ "chats": [],
+ "groundUnits": {
+  "$set": []
+ },
+ "groundSkillUnits": [],
+ "notifyEffects": [],
+ "totals": {
+  "packetCount": 115,
+  "handledPackets": 90,
+  "knownPacketIds": [
+   127,
+   128,
+   135,
+   156,
+   177,
+   180,
+   181,
+   182,
+   183,
+   242,
+   248,
+   271,
+   305,
+   464,
+   470,
+   565,
+   669,
+   1087,
+   2222,
+   2435,
+   2459,
+   2557,
+   2559,
+   2608,
+   2698,
+   2821,
+   2824,
+   2825,
+   2827,
+   2873
   ]
  }
 }"
@@ -55439,6 +60836,8 @@ exports[`decoded output is stable > wh-ilimitar.rrf 1`] = `
  ],
  "itemAdds": [],
  "equipChanges": [],
+ "storages": [],
+ "storageChanges": [],
  "paramChanges": [
   {
    "time": 1721,

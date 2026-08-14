@@ -53,5 +53,10 @@ export {
   PacketIds,
   type DecodedPacket,
 } from "./packets/index.js";
+export {
+  InventoryListType,
+  type ItemListPacket,
+  type StorageItemAddPacket,
+} from "./packets/storage.js";
 
 export type * from "./types.js";

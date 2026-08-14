@@ -32,6 +32,18 @@ import {
   type EquipChangePacket,
   type ItemUseAckPacket,
 } from "./inventory.js";
+import {
+  decodeItemListEnd,
+  decodeItemListEquip,
+  decodeItemListEquipV2,
+  decodeItemListNormal,
+  decodeItemListStart,
+  decodeStorageCount,
+  decodeStorageItemAdd,
+  decodeStorageItemDelete,
+  type ItemListPacket,
+  type StorageItemAddPacket,
+} from "./storage.js";
 import { decodeParamChange32, decodeParamChange64 } from "./stats.js";
 import {
   decodeStatus0196,
@@ -93,6 +105,15 @@ export const PacketIds = {
   MOVE_SELF: 0x0087,
   FIX_POS: 0x0088,
   STATE_CHANGE3: 0x0229,
+  ITEM_LIST_START: 0x0b08,
+  ITEM_LIST_NORMAL: 0x0b09,
+  ITEM_LIST_EQUIP: 0x0b0a,
+  /** Same list, newer client build — see `storage.ts`. */
+  ITEM_LIST_EQUIP_V2: 0x0b39,
+  ITEM_LIST_END: 0x0b0b,
+  STORAGE_COUNT: 0x00f2,
+  STORAGE_ITEM_ADD: 0x0a0a,
+  STORAGE_ITEM_DELETE: 0x00f6,
 } as const;
 
 export type DecodedPacket =
@@ -116,6 +137,12 @@ export type DecodedPacket =
   | { type: "moveSelfRaw"; data: { time: number; startTime: number; from: { gx: number; gy: number }; to: { gx: number; gy: number } } }
   | { type: "option"; data: OptionChangeEvent }
   | { type: "fixPos"; data: FixPosEvent }
+  | { type: "itemListStart"; data: { listType: number } }
+  | { type: "itemList"; data: ItemListPacket }
+  | { type: "itemListEnd"; data: { listType: number } }
+  | { type: "storageCount"; data: { used: number; max: number } }
+  | { type: "storageItemAdd"; data: StorageItemAddPacket }
+  | { type: "storageItemDelete"; data: { time: number; index: number; amount: number } }
   | { type: "skillList"; data: SkillInfoEntry[] };
 
 export function decodePacket(
@@ -202,6 +229,23 @@ export function decodePacket(
         return { type: "fixPos", data: decodeFixPos(reader, time) };
       case PacketIds.STATE_CHANGE3:
         return { type: "option", data: decodeStateChange0229(reader, time) };
+      case PacketIds.ITEM_LIST_START:
+        return { type: "itemListStart", data: decodeItemListStart(reader) };
+      case PacketIds.ITEM_LIST_END:
+        return { type: "itemListEnd", data: decodeItemListEnd(reader) };
+      // Variable-length: the record loop needs the raw packet, not the reader.
+      case PacketIds.ITEM_LIST_NORMAL:
+        return { type: "itemList", data: decodeItemListNormal(raw) };
+      case PacketIds.ITEM_LIST_EQUIP:
+        return { type: "itemList", data: decodeItemListEquip(raw) };
+      case PacketIds.ITEM_LIST_EQUIP_V2:
+        return { type: "itemList", data: decodeItemListEquipV2(raw) };
+      case PacketIds.STORAGE_COUNT:
+        return { type: "storageCount", data: decodeStorageCount(reader) };
+      case PacketIds.STORAGE_ITEM_ADD:
+        return { type: "storageItemAdd", data: decodeStorageItemAdd(reader, time) };
+      case PacketIds.STORAGE_ITEM_DELETE:
+        return { type: "storageItemDelete", data: decodeStorageItemDelete(reader, time) };
       default:
         return null;
     }

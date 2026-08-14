@@ -35,8 +35,13 @@ import type {
   SkillCast,
   SkillUse,
   StatusEvent,
+  StorageChangeEvent,
+  StorageItem,
+  StorageKind,
+  StorageSnapshot,
   VanishEvent,
 } from "./types.js";
+import { InventoryListType } from "./packets/storage.js";
 
 /**
  * Everything the containers hold, without decoding the packet stream.
@@ -200,6 +205,10 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
   const itemDeletes: ItemDeleteEvent[] = [];
   const itemAdds: ItemAddEvent[] = [];
   const equipChanges: EquipChangeEvent[] = [];
+  // The Kafra / clan storages, which exist nowhere in the containers: each entry
+  // is one list the server sent because the player opened the window.
+  const storages: StorageSnapshot[] = [];
+  const storageChanges: StorageChangeEvent[] = [];
   const paramChanges: ParamChangeEvent[] = [];
   const statusEvents: StatusEvent[] = [];
   const chats: ChatEvent[] = [];
@@ -253,6 +262,23 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
   const inventory = new Map<number, InventoryRecord>(
     [...initialInventory].map(([slot, rec]) => [slot, { ...rec }]),
   );
+
+  // The item list currently arriving (0x0b08 … 0x0b0b). The bag and the cart use
+  // the same packets after a map load, so `listType` decides whether the group
+  // becomes a storage snapshot or is dropped — the containers already hold both.
+  let openList: {
+    listType: number;
+    time: number;
+    items: Map<number, StorageItem>;
+  } | null = null;
+  // The storage the deposit/withdraw packets belong to. They carry no type of
+  // their own, and only one storage window can be open at a time, so they belong
+  // to whichever storage the server listed last.
+  let lastStorageKind: StorageKind | null = null;
+  // Running contents per storage, so a withdrawal — which carries only an index
+  // — can name what left. Records are copies: the snapshots must keep reading as
+  // the storage looked when it was opened.
+  const storageState = new Map<StorageKind, Map<number, StorageItem>>();
 
   let packetCount = 0;
   let handledPackets = 0;
@@ -577,6 +603,109 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
         });
         break;
       }
+      case "itemListStart":
+        openList = { listType: decoded.data.listType, time, items: new Map() };
+        break;
+      case "itemList": {
+        const { listType, items: listed } = decoded.data;
+        // Every part of the group repeats its own `invType`, so a list whose
+        // begin marker the recording missed still decodes into the right
+        // container instead of joining whatever came before it.
+        if (!openList || openList.listType !== listType) {
+          openList = { listType, time, items: new Map() };
+        }
+        // A list arrives split over several packets, and one index can repeat
+        // across them; the first record is the valid one, as in the containers.
+        for (const item of listed) {
+          if (!openList.items.has(item.index)) openList.items.set(item.index, item);
+        }
+        break;
+      }
+      case "itemListEnd": {
+        const list = openList;
+        openList = null;
+        if (!list || list.listType !== decoded.data.listType) break;
+        const kind = storageKindOf(list.listType);
+        if (!kind) break; // the bag / the cart — already in the containers
+        const items = [...list.items.values()].sort((a, b) => a.index - b.index);
+        storages.push({
+          kind,
+          time: list.time,
+          items,
+          usedSlots: -1,
+          maxSlots: -1,
+        });
+        lastStorageKind = kind;
+        storageState.set(kind, new Map(items.map((i) => [i.index, { ...i }])));
+        break;
+      }
+      case "storageCount": {
+        // Sent once with the list and again after every deposit/withdrawal.
+        // Only the first belongs to the snapshot — the later ones are the
+        // running count, which `storageChanges` already describes.
+        const last = storages[storages.length - 1];
+        if (last && last.usedSlots < 0) {
+          last.usedSlots = decoded.data.used;
+          last.maxSlots = decoded.data.max;
+        }
+        break;
+      }
+      case "storageItemAdd": {
+        const ev = decoded.data;
+        if (!lastStorageKind) break;
+        const state = storageState.get(lastStorageKind);
+        const existing = state?.get(ev.index);
+        if (state) {
+          if (existing && existing.itemId === ev.itemId) {
+            existing.qty += ev.amount;
+          } else {
+            state.set(ev.index, {
+              index: ev.index,
+              itemId: ev.itemId,
+              qty: ev.amount,
+              equipped: 0,
+              refine: ev.refine,
+              grade: 0,
+              cards: ev.cards,
+              options: ev.options,
+            });
+          }
+        }
+        storageChanges.push({
+          time: ev.time,
+          kind: lastStorageKind,
+          index: ev.index,
+          added: true,
+          itemId: ev.itemId,
+          amount: ev.amount,
+          refine: ev.refine,
+          // The packet has no grade byte, so a deposit reports 0 even for an
+          // item the snapshot would have shown a grade for.
+          grade: 0,
+          cards: ev.cards,
+          options: ev.options,
+        });
+        break;
+      }
+      case "storageItemDelete": {
+        const ev = decoded.data;
+        if (!lastStorageKind) break;
+        const rec = storageState.get(lastStorageKind)?.get(ev.index);
+        if (rec) rec.qty = Math.max(0, rec.qty - ev.amount);
+        storageChanges.push({
+          time: ev.time,
+          kind: lastStorageKind,
+          index: ev.index,
+          added: false,
+          itemId: rec?.itemId ?? 0,
+          amount: ev.amount,
+          refine: rec?.refine ?? 0,
+          grade: rec?.grade ?? 0,
+          cards: rec?.cards ?? [0, 0, 0, 0],
+          options: rec?.options ?? [],
+        });
+        break;
+      }
       case "paramChange":
         paramChanges.push(decoded.data);
         break;
@@ -649,6 +778,8 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
     itemDeletes,
     itemAdds,
     equipChanges,
+    storages,
+    storageChanges,
     paramChanges: dedupedParams,
     statusEvents: dedupedStatus,
     chats,
@@ -661,6 +792,13 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
       knownPacketIds: [...knownPacketIdSet].sort((a, b) => a - b),
     },
   };
+}
+
+/** The two `inventory_type` values that are a storage; null for bag and cart. */
+function storageKindOf(listType: number): StorageKind | null {
+  if (listType === InventoryListType.Storage) return "storage";
+  if (listType === InventoryListType.GuildStorage) return "guildStorage";
+  return null;
 }
 
 const DEDUP_WINDOW_MS = 200;

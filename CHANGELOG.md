@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.1.0
+
+### Added
+
+- **`Replay.storages` — the Kafra and clan storages.** They were assumed to be
+  unreachable from a recording, on the theory that the item chunks 4511-4522
+  were where they would have lived. They are reachable, just not from the
+  containers: a recording taken with both storages open leaves those chunks as
+  empty as every other recording does, because the contents arrive over the
+  wire. When the player opens a storage, the server sends it as an item-list
+  group (`0x0b08` begin / `0x0b09` stackables / `0x0b0a` or `0x0b39` gear /
+  `0x0b0b` end), and that is the only place it is on record. `storages` holds
+  one snapshot per open, with the same record shape as a bag item — id, qty,
+  refine, grade, cards and random options — plus the server's own slot count.
+- **`Replay.storageChanges`** — deposits (`0x0a0a`) and withdrawals (`0x00f6`)
+  while a storage was open. A withdrawal packet carries only an index, so the
+  item that left is resolved from the running storage contents, the same way
+  `itemDeletes` resolves against the inventory.
+
+The record layouts were pinned against the same packets sent for the **bag**
+(`invType` 0), which the containers also hold: across 29 recordings, 2455 of
+2771 records agree field for field, and every disagreement is a stack whose
+quantity moved between the snapshot and the packet, or an option list the older
+172-byte container record ends too early to carry. As an end-to-end check, every
+storage snapshot in the corpus holds exactly as many stacks as the server's own
+count packet reports.
+
 ## 1.0.0
 
 First stable release — `1.0.0-rc.2` promoted with the prerelease suffix

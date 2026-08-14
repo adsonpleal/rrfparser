@@ -22,4 +22,5 @@ export const FIXTURES = [
   "hn-magic-lv1.rrf",
   "equip-test-2.rrf",
   "wh-ilimitar.rrf",
+  "storage-kafra-clan.rrf",
 ] as const;

@@ -66,9 +66,25 @@ A `.rrf` file is two things: a set of **containers** holding a snapshot of the c
 | `groundSkillUnits` | AoE ground units, attributed back to the skill that placed them |
 | `mobHp`, `vanishes`, `kills` | health updates and despawns |
 | `itemAdds` / `itemDeletes` / `equipChanges` | inventory changes over time |
+| `storages` / `storageChanges` | Kafra and clan storage contents, and deposits/withdrawals |
 | `paramChanges`, `statusEvents`, `optionChanges`, `notifyEffects`, `chats` | stats, buffs, mounts, effects, chat |
 
 The item snapshot is the state at recording **start**. Items picked up afterwards arrive as `itemAdds`.
+
+### The storages are in the stream, not the snapshot
+
+The Kafra and clan storages are not part of the character snapshot — the empty item chunks 4511-4522 are not them, and stay empty in a recording taken with both storages open. They exist on record only when the player opened the window and the server answered with the contents, so `storages` holds one entry per open and is empty for a recording that never visited a Kafra.
+
+```ts
+for (const s of replay.storages) {
+  s.kind;      // "storage" (Kafra) | "guildStorage" (clan)
+  s.items;     // itemId, qty, refine, grade, cards, options — the same shape as a bag record
+  s.usedSlots; // the server's own count, and a check on ours: it matches items.length
+  s.maxSlots;  // 300 / 600 on the Kafra storage, whatever the clan bought for theirs
+}
+```
+
+Items moved while the window was open arrive as `storageChanges`; apply them in order to the last snapshot of the same `kind` to get the contents at the end of the recording. `StorageItem.index` is the server's handle for an item within one list — it correlates a change with a snapshot, but it is not a stable slot: it keeps counting across opens, so the same physical position gets a different index next time.
 
 ### Card sockets are positional
 
