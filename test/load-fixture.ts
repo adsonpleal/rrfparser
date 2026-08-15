@@ -23,4 +23,5 @@ export const FIXTURES = [
   "equip-test-2.rrf",
   "wh-ilimitar.rrf",
   "storage-kafra-clan.rrf",
+  "sx-traits-maploaded.rrf",
 ] as const;

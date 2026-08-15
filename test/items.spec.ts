@@ -124,11 +124,35 @@ describe("enchant grade (wh-ilimitar.rrf)", () => {
   });
 });
 
+/**
+ * A second, independent instance of the grade/option-count coincidence that
+ * `wh-ilimitar.rrf` pins down: a different character on a different weapon, also
+ * grade 2 with exactly 2 random options. One file could be luck; two cannot.
+ */
+describe("enchant grade (sx-traits-maploaded.rrf)", () => {
+  const worn = decodeInventory(
+    loadReplayFixture("sx-traits-maploaded.rrf"),
+  ).equipped;
+
+  it("reads the one graded piece and leaves the rest at 0", () => {
+    const graded = worn.filter((r) => r.grade !== 0);
+    expect(graded).toHaveLength(1);
+    expect(graded[0]).toMatchObject({
+      itemId: 610033,
+      refine: 14,
+      grade: 2,
+    });
+    expect(graded[0]!.options).toHaveLength(2);
+  });
+});
+
+const GRADED_FIXTURES = ["wh-ilimitar.rrf", "sx-traits-maploaded.rrf"];
+
 describe("every other fixture decodes as ungraded", () => {
   // None of them was recorded with graded gear, so a change that starts reading
   // the wrong TLV tag — the option count being the obvious one — shows up here
   // as a nonzero grade rather than silently in one consumer's damage numbers.
-  it.each(FIXTURES.filter((f) => f !== "wh-ilimitar.rrf"))("%s", (name) => {
+  it.each(FIXTURES.filter((f) => !GRADED_FIXTURES.includes(f)))("%s", (name) => {
     const items = decodeInventory(loadReplayFixture(name));
     const every = [
       ...items.inventory,

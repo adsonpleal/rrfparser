@@ -46,6 +46,7 @@ import {
 } from "./storage.js";
 import { decodeParamChange32, decodeParamChange64 } from "./stats.js";
 import {
+  decodeStatus0141,
   decodeStatus0196,
   decodeStatus043f,
   decodeStatus0983,
@@ -53,6 +54,7 @@ import {
 import { decodeSelfChat } from "./chat.js";
 import type {
   ChatEvent,
+  CoupleStatusEvent,
   DamageEvent,
   FixPosEvent,
   ItemAddEvent,
@@ -95,6 +97,8 @@ export const PacketIds = {
   TAKEOFF_EQUIP: 0x099a,
   PARAM_CHANGE_32: 0x00b0,
   PARAM_CHANGE_64: 0x0b1b,
+  /** ZC_COUPLESTATUS — the only carrier of the 4th-job traits. */
+  COUPLE_STATUS: 0x0141,
   STATUS_0196: 0x0196,
   STATUS_043F: 0x043f,
   STATUS_0983: 0x0983,
@@ -129,6 +133,7 @@ export type DecodedPacket =
   | { type: "itemUseAck"; data: ItemUseAckPacket }
   | { type: "equipChange"; data: EquipChangePacket }
   | { type: "paramChange"; data: ParamChangeEvent }
+  | { type: "coupleStatus"; data: CoupleStatusEvent }
   | { type: "status"; data: StatusEvent }
   | { type: "groundSkillEntry"; data: GroundSkillEntry }
   | { type: "notifyEffect"; data: NotifyEffectEvent }
@@ -203,6 +208,8 @@ export function decodePacket(
         return { type: "paramChange", data: decodeParamChange32(reader, time) };
       case PacketIds.PARAM_CHANGE_64:
         return { type: "paramChange", data: decodeParamChange64(reader, time) };
+      case PacketIds.COUPLE_STATUS:
+        return { type: "coupleStatus", data: decodeStatus0141(reader, time) };
       case PacketIds.STATUS_0196:
         return { type: "status", data: decodeStatus0196(reader, time) };
       case PacketIds.STATUS_043F:

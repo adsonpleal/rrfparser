@@ -67,6 +67,7 @@ A `.rrf` file is two things: a set of **containers** holding a snapshot of the c
 | `mobHp`, `vanishes`, `kills` | health updates and despawns |
 | `itemAdds` / `itemDeletes` / `equipChanges` | inventory changes over time |
 | `storages` / `storageChanges` | Kafra and clan storage listings, and deposits/withdrawals — see `storageAt` for the contents |
+| `traits` / `coupleStatus` | the 4th-job traits POW/STA/WIS/SPL/CON/CRT, when the recording carried them — see below |
 | `paramChanges`, `statusEvents`, `optionChanges`, `notifyEffects`, `chats` | stats, buffs, mounts, effects, chat |
 
 The item snapshot is the state at recording **start**. Items picked up afterwards arrive as `itemAdds`.
@@ -95,6 +96,32 @@ storagesAt(replay); // both, with the never-opened ones left out
 `storageAt` is doing three things you would otherwise have to know about. `replay.storages` is a log — one entry per open — so the **last** entry of a kind is the current one, and because the server relists the full contents on every open, the deposits and withdrawals in `replay.storageChanges` from before it are already counted there. Only the ones after it apply. And a withdrawal carries just an index, so one for an index no listing mentioned is dropped rather than added as a phantom with `itemId` 0.
 
 The raw log stays available as `replay.storages` / `replay.storageChanges` for tools that want the movements themselves, and `applyStorageChanges(items, changes)` is exported for driving the merge directly. `StorageItem.index` is the server's handle for an item within one list — it correlates a change with a snapshot, but it is not a stable slot: it keeps counting across opens, so the same physical position gets a different index next time.
+
+### The 4th-job traits are usually absent, and that is the honest answer
+
+`replay.traits` holds POW/STA/WIS/SPL/CON/CRT — but only when the recording happened to carry them, and **most recordings do not**:
+
+```ts
+replay.traits; // { pow: 100, sta: 0, wis: 0, spl: 0, con: 11, crt: 38 }
+replay.traits; // {} — this recording cannot say
+```
+
+A missing field means unknown. It is never zero-filled and never estimated, because zero is itself a real value: a character with no traits reports six genuine zeros, which is a different fact from "the recording is silent".
+
+Nothing in the file's containers holds the traits. The six Session chunks right after `luk` look like them and are not — they are the stat need-points (`SP_USTR`..`SP_ULUK`), the cost of the next point in each stat, which is why they are populated for a level-26 Merchant and why they read `0` once a stat hits its cap. The only carrier is `ZC_COUPLESTATUS` (0x0141) in the packet stream.
+
+**Which recordings have them.** The server sends all six from `clif_initialstatus`, which runs at login *and on every map load*. Login predates the recording, so it is never captured — but a map load is, roughly 300 ms after the `0x0091`. So:
+
+| the recording… | traits |
+| --- | --- |
+| contains a teleport, warp or death | all six |
+| never changes map | none, or only a trait some buff modified mid-recording |
+
+Across a 576-replay corpus this was 11% of all recordings, 37% of 4th-job ones, and **100% of 4th-job recordings that contained a map load**. If you are asking players for a replay to import a build from, ask them to teleport once while recording.
+
+`replay.coupleStatus` is the raw event list, `base` and `plus` kept apart — `base` is the allocation, `plus` is the transient gear-and-buff delta. Build importers want `base`; `base + plus` is only the total at that instant. The same packet also carries ids 13-18 for the primary stats, which is how `base` was verified to mean "allocated": for those ids it equals the allocated STR/AGI/VIT/INT/DEX/LUK in the container snapshot.
+
+Do not try to recover the traits from the derived stats in `paramChanges` (P.Atk, S.MAtk, Res, MRes, HPlus, CRate). They are linear in the traits, so inverting them is tempting, but they are post-gear values and gear adds without bound: measured against 65 known-good builds the inversion was exact 19-40% of the time and overshot by up to 79.
 
 ### Card sockets are positional
 
@@ -166,6 +193,8 @@ Developed against the LATAM client's recordings. The format comes from kRO, so o
 ## Credit
 
 The container format, the key derivation and the `EQUIPITEM_INFO` field offsets were all worked out by reading **[Tokeiburu/Rrf-Parser](https://github.com/Tokeiburu/Rrf-Parser)**, a C# `.rrf` parser by [Tokeiburu](https://github.com/Tokeiburu). This project is an independent TypeScript implementation, but it would not exist without that one — the record offsets in `src/items.ts` cite `ReplayService.cs:154-184` directly.
+
+The 4th-job traits were tracked down by **Kiulg** (ROCalcRE), who identified `ZC_COUPLESTATUS` (0x0141) as their only carrier, established that no container holds them, and shared the write-up this decoder is built from — including the finding that the six Session chunks that look like traits are the stat need-points instead.
 
 ## Used by
 

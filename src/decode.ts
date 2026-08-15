@@ -10,9 +10,11 @@ import { deriveKeys } from "./crypt.js";
 import { readHeader } from "./header.js";
 import { readItemContainers, toInventoryMap } from "./items.js";
 import { decodePacket } from "./packets/index.js";
+import { traitsFromCoupleStatus } from "./packets/status.js";
 import { readKoreanZ } from "./reader.js";
 import type {
   ChatEvent,
+  CoupleStatusEvent,
   DamageEvent,
   Entity,
   EntityKind,
@@ -210,6 +212,9 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
   const storages: StorageSnapshot[] = [];
   const storageChanges: StorageChangeEvent[] = [];
   const paramChanges: ParamChangeEvent[] = [];
+  // 0x0141. Not deduped: two bursts can land on the same millisecond with the
+  // same `base` and a different `plus`, and both are real.
+  const coupleStatus: CoupleStatusEvent[] = [];
   const statusEvents: StatusEvent[] = [];
   const chats: ChatEvent[] = [];
   // Learned skill tree from the 0x010f snapshot the client sends at login.
@@ -709,6 +714,9 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
       case "paramChange":
         paramChanges.push(decoded.data);
         break;
+      case "coupleStatus":
+        coupleStatus.push(decoded.data);
+        break;
       case "status":
         statusEvents.push(decoded.data);
         break;
@@ -781,6 +789,8 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
     storages,
     storageChanges,
     paramChanges: dedupedParams,
+    coupleStatus,
+    traits: traitsFromCoupleStatus(coupleStatus),
     statusEvents: dedupedStatus,
     chats,
     groundUnits,

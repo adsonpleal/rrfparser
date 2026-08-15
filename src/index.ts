@@ -57,6 +57,9 @@ export {
   PacketIds,
   type DecodedPacket,
 } from "./packets/index.js";
+// The traits as state rather than as a log — `decodeReplay` already applies this
+// to fill `replay.traits`; exported for consumers that collect 0x0141 themselves.
+export { traitsFromCoupleStatus } from "./packets/status.js";
 export {
   InventoryListType,
   type ItemListPacket,

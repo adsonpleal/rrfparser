@@ -1,5 +1,60 @@
 # Changelog
 
+## 1.3.0
+
+Traits found and documented by **Kiulg** (ROCalcRE), maintainer of a sibling
+fork of the simulator: that `ZC_COUPLESTATUS` (0x0141) is their only carrier,
+that no container holds them, and that the six Session chunks which look like
+traits are the stat need-points. This release is that write-up implemented and
+verified against a 576-replay corpus.
+
+### Added
+
+- **`Replay.traits` — the 4th-job traits, where they actually live.** POW/STA/
+  WIS/SPL/CON/CRT are in no container. The six Session chunks that sit right
+  after `luk` and look exactly like them are the stat need-points instead: they
+  match rAthena's `PC_STATUS_POINT_COST` on every fixture, are populated for a
+  level-26 Merchant that cannot have traits at all, and drop to `0` precisely
+  when a stat reaches its cap. The only carrier is `ZC_COUPLESTATUS` (0x0141),
+  now decoded.
+
+  ```ts
+  replay.traits; // { pow: 100, sta: 0, wis: 0, spl: 0, con: 11, crt: 38 }
+  replay.traits; // {} — this recording cannot say
+  ```
+
+  A missing field means unknown, never zero: a character with no traits reports
+  six real zeros, which is a different fact from silence. Nothing is estimated
+  or back-derived.
+
+  **Most recordings carry none.** The server sends all six from
+  `clif_initialstatus` — at login, which predates the recording, and on every
+  map load, which does not. A recording with a teleport in it therefore has all
+  six about 300 ms after the `0x0091`; one that never changes map has none, or
+  only whichever trait a buff modified mid-recording. Measured over 576
+  replays: 11% of all of them, 37% of 4th-job ones, and 100% of 4th-job ones
+  containing a map load.
+
+- **`Replay.coupleStatus`** — the raw 0x0141 log, with `base` (the allocation)
+  and `plus` (the transient gear/buff delta) kept apart, since a build importer
+  and a buff simulator want different halves. `traitsFromCoupleStatus` is
+  exported for consumers that collect the events themselves.
+
+  The same packet carries ids 13-18 for the primary stats, which is what
+  establishes `base` = "allocated" rather than assuming it: for those ids it
+  equals the allocated STR/AGI/VIT/INT/DEX/LUK already in the container
+  snapshot of the same file.
+
+### Notes
+
+- The derived stats in `paramChanges` (P.Atk, S.MAtk, Res, MRes, HPlus, CRate,
+  ids 225-230) are linear in the traits and look invertible. They are not
+  usable for it: they are post-gear values and gear adds without bound. Against
+  65 known-good builds the inversion was exact 19-40% of the time and overshot
+  by as much as 79, and the obvious internal consistency check
+  (`floor(hplus/3) === crate`) passed on 61 of 63 files while being wrong on 42
+  of them. Traits come from `base` or not at all.
+
 ## 1.2.0
 
 ### Added

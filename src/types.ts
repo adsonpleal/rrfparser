@@ -227,6 +227,40 @@ export type ParamChangeEvent = {
   value: bigint;
 };
 
+/**
+ * One `ZC_COUPLESTATUS` (0x0141) event — a stat the server reports as a pair of
+ * "what you allocated" plus "what your gear and buffs add on top".
+ *
+ * The only place a 4th-job trait appears anywhere in a `.rrf`: no container
+ * holds them (see {@link Replay.traits}).
+ */
+export type CoupleStatusEvent = {
+  time: number;
+  /** rAthena `SP_*` id. 219-224 are POW, STA, WIS, SPL, CON, CRT. */
+  statusId: number;
+  /** The allocated value — the trait itself. This is what a build import wants. */
+  base: number;
+  /** Transient delta from gear and buffs. Informational: it moves as buffs come
+   *  and go, so `base + plus` is only the total at that instant. */
+  plus: number;
+};
+
+/**
+ * The six 4th-job traits, when the recording carried them.
+ *
+ * Every field is optional and a missing field means **unknown**, never zero —
+ * zero is itself a real value (a non-4th-job character reports all six as 0).
+ * See {@link Replay.traits} for when they show up at all.
+ */
+export type Traits = {
+  pow?: number;
+  sta?: number;
+  wis?: number;
+  spl?: number;
+  con?: number;
+  crt?: number;
+};
+
 export type StatusEvent = {
   time: number;
   statusId: number;
@@ -528,6 +562,29 @@ export type Replay = {
    */
   storageChanges: StorageChangeEvent[];
   paramChanges: ParamChangeEvent[];
+  /**
+   * Every `ZC_COUPLESTATUS` (0x0141) the stream carried, in packet order, with
+   * `base` and `plus` kept apart — a build importer reads `base`, a buff
+   * simulator reads `plus`. Most recordings carry none.
+   */
+  coupleStatus: CoupleStatusEvent[];
+  /**
+   * The 4th-job traits, read straight off {@link coupleStatus} — the last `base`
+   * seen per trait, which is the allocation at the end of the recording.
+   *
+   * **Usually empty.** The traits live in no container, so the packet stream is
+   * the only carrier, and the server sends them from `clif_initialstatus` — at
+   * login (before recording starts, so never captured) and on **every map load**
+   * (captured, ~300ms after the 0x0091). A recording containing a teleport or
+   * warp therefore carries all six; one that never changes map usually carries
+   * none, or only the traits a buff happened to modify mid-recording.
+   *
+   * A missing field means unknown. Nothing here is estimated or back-derived: if
+   * the stream did not say it, it is absent. (The derived stats P.Atk / S.MAtk /
+   * Res / MRes / HPlus / CRate in `paramChanges` are *not* usable to recover the
+   * traits — gear adds to them without bound, so inverting them overshoots.)
+   */
+  traits: Traits;
   statusEvents: StatusEvent[];
   chats: ChatEvent[];
   /**
