@@ -66,25 +66,35 @@ A `.rrf` file is two things: a set of **containers** holding a snapshot of the c
 | `groundSkillUnits` | AoE ground units, attributed back to the skill that placed them |
 | `mobHp`, `vanishes`, `kills` | health updates and despawns |
 | `itemAdds` / `itemDeletes` / `equipChanges` | inventory changes over time |
-| `storages` / `storageChanges` | Kafra and clan storage contents, and deposits/withdrawals |
+| `storages` / `storageChanges` | Kafra and clan storage listings, and deposits/withdrawals — see `storageAt` for the contents |
 | `paramChanges`, `statusEvents`, `optionChanges`, `notifyEffects`, `chats` | stats, buffs, mounts, effects, chat |
 
 The item snapshot is the state at recording **start**. Items picked up afterwards arrive as `itemAdds`.
 
 ### The storages are in the stream, not the snapshot
 
-The Kafra and clan storages are not part of the character snapshot — the empty item chunks 4511-4522 are not them, and stay empty in a recording taken with both storages open. They exist on record only when the player opened the window and the server answered with the contents, so `storages` holds one entry per open and is empty for a recording that never visited a Kafra.
+The Kafra and clan storages are not part of the character snapshot — the empty item chunks 4511-4522 are not them, and stay empty in a recording taken with both storages open. They exist on record only when the player opened the window and the server answered with the contents.
+
+Ask for the contents with `storageAt`, which returns what was in there at the end of the recording, or `null` when the player never opened that window:
 
 ```ts
-for (const s of replay.storages) {
-  s.kind;      // "storage" (Kafra) | "guildStorage" (clan)
-  s.items;     // itemId, qty, refine, grade, cards, options — the same shape as a bag record
-  s.usedSlots; // the server's own count, and a check on ours: it matches items.length
-  s.maxSlots;  // 300 / 600 on the Kafra storage, whatever the clan bought for theirs
+import { decodeReplay, storageAt, storagesAt } from "rrfparser";
+
+const kafra = storageAt(replay, "storage"); // or "guildStorage" for the clan
+if (kafra) {
+  kafra.items;     // itemId, qty, refine, grade, cards, options — the same shape as a bag record
+  kafra.maxSlots;  // 300 / 600 on the Kafra storage, whatever the clan bought for theirs
+  kafra.usedSlots; // the server's own count at the moment the window opened
 }
+
+storagesAt(replay); // both, with the never-opened ones left out
 ```
 
-Items moved while the window was open arrive as `storageChanges`; apply them in order to the last snapshot of the same `kind` to get the contents at the end of the recording. `StorageItem.index` is the server's handle for an item within one list — it correlates a change with a snapshot, but it is not a stable slot: it keeps counting across opens, so the same physical position gets a different index next time.
+**`null` is not an empty storage.** `null` means the recording cannot say; a storage that was open while empty comes back as a snapshot with no items. Collapsing the two turns "never visited a Kafra" into "your storage is empty".
+
+`storageAt` is doing three things you would otherwise have to know about. `replay.storages` is a log — one entry per open — so the **last** entry of a kind is the current one, and because the server relists the full contents on every open, the deposits and withdrawals in `replay.storageChanges` from before it are already counted there. Only the ones after it apply. And a withdrawal carries just an index, so one for an index no listing mentioned is dropped rather than added as a phantom with `itemId` 0.
+
+The raw log stays available as `replay.storages` / `replay.storageChanges` for tools that want the movements themselves, and `applyStorageChanges(items, changes)` is exported for driving the merge directly. `StorageItem.index` is the server's handle for an item within one list — it correlates a change with a snapshot, but it is not a stable slot: it keeps counting across opens, so the same physical position gets a different index next time.
 
 ### Card sockets are positional
 

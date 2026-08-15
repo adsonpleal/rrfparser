@@ -434,8 +434,10 @@ export type StorageSnapshot = {
 /**
  * An item deposited into or withdrawn from a storage while it was open.
  *
- * Apply these in order to the last {@link StorageSnapshot} of the same `kind` to
- * get the storage's contents at the end of the recording.
+ * This is the movement log. For the resulting **contents** call `storageAt`,
+ * which applies the changes to the right listing — doing it by hand means
+ * knowing that the last listing of a kind already reflects everything before it,
+ * and that a withdrawal for an index no listing mentioned has to be dropped.
  */
 export type StorageChangeEvent = {
   time: number;
@@ -511,6 +513,10 @@ export type Replay = {
    *
    * This is the only place the Kafra and clan storages appear: nothing in the
    * file's containers holds them.
+   *
+   * This is the raw log. Most consumers want `storageAt(replay, kind)` or
+   * `storagesAt(replay)`, which give the contents at the end of the recording —
+   * reading `storages[0]` directly means missing later opens and every deposit.
    */
   storages: StorageSnapshot[];
   /**

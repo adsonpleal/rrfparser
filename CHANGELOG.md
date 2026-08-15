@@ -1,5 +1,42 @@
 # Changelog
 
+## 1.2.0
+
+### Added
+
+- **`storageAt(replay, kind)` — the storages as contents, not as a log.** 1.1.0
+  shipped them as `Replay.storages` plus `Replay.storageChanges` and told each
+  consumer to combine the two themselves. That was the wrong place to draw the
+  line: doing it correctly takes three pieces of protocol knowledge that have
+  nothing to do with what a consumer is trying to do, and consumers had already
+  started writing their own answers to them. It lives here now, once.
+
+  ```ts
+  const kafra = storageAt(replay, "storage"); // null when never opened
+  const both = storagesAt(replay);            // never-opened ones left out
+  ```
+
+  `null` is not an empty storage: it means the recording cannot say, while a
+  storage opened while empty comes back as a snapshot with no items.
+
+  The three parts it settles. The **last** listing of a kind is the current one,
+  and because the server relists the full contents on every open, movements from
+  before it are already counted there — reapplying them silently doubles a stack.
+  A movement in the same millisecond as the listing counts as after it, since a
+  window that has closed cannot be deposited into. And a withdrawal carries only
+  an index, so one for an index no listing mentioned is dropped rather than added
+  as a phantom stack with `itemId` 0.
+
+- **`applyStorageChanges(items, changes)`** — the merge by itself, for driving it
+  against something other than a decoded `Replay`. Pure, and it does not mutate
+  its input.
+
+### Changed
+
+- `Replay.storages` and `Replay.storageChanges` are untouched and still the raw
+  log. Only the docs changed: they point at `storageAt` first, because reading
+  `storages[0]` directly misses later opens and every deposit.
+
 ## 1.1.0
 
 ### Added

@@ -47,6 +47,10 @@ export {
   type PacketStreamContainer,
 } from "./containers.js";
 export { readItemContainers, toInventoryMap } from "./items.js";
+// The storages as state rather than as a log. In the library because turning the
+// log into state is protocol work, and leaving it to each consumer had already
+// started producing a copy per consumer — see `storage.ts`.
+export { applyStorageChanges, storageAt, storagesAt } from "./storage.js";
 export { ByteReader, readEntityName, readKoreanZ } from "./reader.js";
 export {
   decodePacket,
