@@ -4964,7 +4964,8 @@ exports[`decoded output is stable > equip-test-2.rrf 1`] = `
      "firstSeenMs": 0,
      "lastHp": -1,
      "sex": 0,
-     "option": 0
+     "option": 0,
+     "ownerAid": 1822883
     }
    ],
    [
@@ -5092,7 +5093,8 @@ exports[`decoded output is stable > equip-test-2.rrf 1`] = `
      "firstSeenMs": 9543,
      "lastHp": -1,
      "sex": 0,
-     "option": 0
+     "option": 0,
+     "ownerAid": 1000765
     }
    ],
    [
@@ -51956,7 +51958,8 @@ exports[`decoded output is stable > storage-kafra-clan.rrf 1`] = `
      "firstSeenMs": 7895,
      "lastHp": -1,
      "sex": 0,
-     "option": 0
+     "option": 0,
+     "ownerAid": 1006983
     }
    ],
    [
@@ -51988,7 +51991,8 @@ exports[`decoded output is stable > storage-kafra-clan.rrf 1`] = `
      "firstSeenMs": 0,
      "lastHp": -1,
      "sex": 0,
-     "option": 0
+     "option": 0,
+     "ownerAid": 1128522
     }
    ],
    [
@@ -57463,7 +57467,8 @@ exports[`decoded output is stable > sx-traits-maploaded.rrf 1`] = `
      "firstSeenMs": 0,
      "lastHp": -1,
      "sex": 0,
-     "option": 0
+     "option": 0,
+     "ownerAid": 1518660
     }
    ],
    [

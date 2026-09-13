@@ -6,6 +6,10 @@ export type EntityKind =
   | "pet"
   | "homun"
   | "elem"
+  /** Meister's ABR robots (spawn object type 0x0d). */
+  | "abr"
+  /** Biolo's summons — Wooden Warrior, Wooden Fairy, Creeper, Hell Tree (0x0e). */
+  | "bionic"
   | "unknown";
 
 export type Entity = {
@@ -45,6 +49,19 @@ export type Entity = {
   headMidView?: number;
   headLowView?: number;
   robeView?: number;
+  /**
+   * The player this entity belongs to — a pet, homunculus, mercenary, elemental, ABR,
+   * bionic, or a monster a skill put on the field (Mechanic's turrets, Oboro's
+   * shadow clone). Undefined when the recording cannot say.
+   *
+   * It comes from the spawn packet's GID field, which for these carries the
+   * master's AID, and is only set when that AID is a player the recording saw:
+   * a boss's GID names the script NPC that spawned it, which is not an owner.
+   * The recording-start snapshot (0x0857) has no GID, so a summon that was
+   * already on screen and never re-spawned has no owner here — except the
+   * recorder's own elemental, which the Companions container names.
+   */
+  ownerAid?: number;
   /** OPTION/effectState bitmask from the spawn packet — carries mount flags
    *  (Peco, Mado Gear, Dragon, Warg). Undefined for entities we never saw a
    *  spawn packet for. */

@@ -1,5 +1,38 @@
 # Changelog
 
+## 1.4.0
+
+### Added
+
+- **Two new `EntityKind`s: `"abr"` and `"bionic"`.** The Meister's ABR robots
+  spawn with object type `0x0d` and the Biolo's summons (Wooden Warrior, Wooden
+  Fairy, Creeper, Hell Tree) with `0x0e`. Neither is in rAthena's table, so both
+  came out as `"unknown"` — and a consumer that filters on kind treated a
+  Meister's cannon as a monster that took damage rather than as something that
+  dealt it. Established from a 240-replay corpus: `0x0d` only ever carries the
+  ABR ids (20834-20837) and `0x0e` only the Biolo summon ids (20848-20851).
+  `0x0c`, the hidden script NPCs (traps, a boss's controller), stays `"unknown"`.
+
+- **`Entity.ownerAid` — who a summon belongs to.** The spawn packet's GID field
+  holds the master's AID for pets, homunculi, mercenaries, elementals, ABRs,
+  bionics and monsters a skill puts on the field (a Mechanic's turret, an Oboro's
+  shadow clone). It is set only when that AID is a player the recording saw: a
+  boss's GID names the script NPC that spawned it, and a player's own GID is their
+  character id. Resolved after the whole stream is read, since the master can
+  spawn after the summon. The recorder's own elemental also comes from the
+  Companions container (chunk 5401), which names it even when no spawn packet in
+  the file does.
+
+  Over the corpus every resolved owner is a class that can have that summon
+  (ABR → Meister, bionic → Biolo, elemental → Elemental Master/Sorcerer,
+  homunculus → Genetic/Biolo), and 99.9% of the damage dealt by summons lands on
+  one with an owner.
+
+### Notes
+
+- Adding members to the `EntityKind` union is a type-level change for a consumer
+  with an exhaustive `switch` over it; nothing about existing kinds moved.
+
 ## 1.3.0
 
 Traits found and documented by **Kiulg** (ROCalcRE), maintainer of a sibling

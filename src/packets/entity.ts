@@ -59,6 +59,14 @@ function classifyObjectType(t: number): EntityKind {
       return "merc";
     case 0xa:
       return "elem";
+    // Not in rAthena's table; established from recordings. 0x0d only ever carries
+    // the ABR ids (20834-20837) and 0x0e only the Biolo summons (20848-20851),
+    // both with the owning player's AID in the GID field. 0x0c is the hidden
+    // script NPCs (traps, a boss's controller) and stays "unknown".
+    case 0xd:
+      return "abr";
+    case 0xe:
+      return "bionic";
     default:
       return "unknown";
   }

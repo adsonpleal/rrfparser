@@ -251,6 +251,8 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
   // Server-pushed visual effects (0x01f3) — item-use sparkles + other specialeffects.
   const notifyEffects: NotifyEffectEvent[] = [];
   const lastSkillByCaster = new Map<number, { skillId: number; time: number }>();
+  // Last non-trivial GID per spawned AID — the candidate owner, see resolveOwners.
+  const spawnGids = new Map<number, number>();
   // Widest cast we care to bridge (a long channel like Storm Gust) — beyond this
   // the "last skill" is too stale to trust as this unit's source.
   const GROUND_SKILL_ATTR_MS = 6000;
@@ -379,6 +381,11 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
         const ep = decoded.data;
         const e = ensureEntity(ep.aid, ep.kind, time);
         if (ep.kind !== "unknown") e.kind = ep.kind;
+        // A player's GID is their character id and a mob's is usually 0; for a
+        // summon it is the master's AID. Which one it is can only be told once the
+        // whole stream is in (the master may spawn after the summon), so keep the
+        // raw value and let resolveOwners() decide.
+        if (ep.gid && ep.gid !== ep.aid) spawnGids.set(ep.aid, ep.gid);
         if (ep.view) e.view = ep.view;
         if (ep.name) e.name = ep.name;
         if (ep.level) e.level = ep.level;
@@ -730,6 +737,8 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
     }
   }
 
+  resolveOwners(entities, spawnGids, session.aid, recorderElementalAid(containers));
+
   // The recording's true length (ms) is stored in ReplayData chunk 970 — this
   // is what the in-game replay UI counts down. It runs PAST the last packet
   // (the recorder keeps rolling a beat after the final action), so the
@@ -980,6 +989,47 @@ function extractPet(containers: AnyContainer[]): PetSnapshot | undefined {
     hunger: u32(5307) ?? 0,
     intimacy: u32(5308) ?? 0,
   };
+}
+
+/**
+ * The recorder's own elemental, from the Companions container: chunk **5401** is
+ * its AID, `0xffffffff` when none was out. Checked against the entity table on
+ * every recording by an Elementalista in a 240-replay corpus — whenever 5401 is
+ * set and that AID spawned, it is an elemental. It can be set while the AID never
+ * appears (the elemental was off screen), which is why resolveOwners only stamps
+ * entities that exist. The 51xx/52xx chunks look like the homunculus/mercenary
+ * equivalent but were zero in every recording of that corpus, so they are not
+ * read.
+ */
+function recorderElementalAid(containers: AnyContainer[]): number | undefined {
+  const c = findContainer(containers, ContainerType.Companions);
+  if (!c) return undefined;
+  const aid = readU32ChunkById(c, 5401);
+  return aid && aid !== 0xffffffff ? aid : undefined;
+}
+
+/**
+ * Stamp `ownerAid` on every entity whose spawn GID names a player in the
+ * recording. Only players qualify: a boss's GID is the script NPC that spawned it
+ * (Betelgeuse's is `#boss_control_…`), and a player's own GID is their character
+ * id, which is never another entity's AID.
+ */
+export function resolveOwners(
+  entities: Map<number, Entity>,
+  spawnGids: ReadonlyMap<number, number>,
+  recorderAid: number,
+  recorderElemental?: number,
+): void {
+  for (const [aid, gid] of spawnGids) {
+    const e = entities.get(aid);
+    if (!e || e.kind === "pc") continue;
+    if (entities.get(gid)?.kind !== "pc") continue;
+    e.ownerAid = gid;
+  }
+  if (recorderElemental !== undefined && recorderAid) {
+    const e = entities.get(recorderElemental);
+    if (e && e.kind === "elem" && e.ownerAid === undefined) e.ownerAid = recorderAid;
+  }
 }
 
 function readU32ChunkById(
