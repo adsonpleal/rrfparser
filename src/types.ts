@@ -115,11 +115,11 @@ export type SkillUse = {
 /** One entry of the learned skill tree (0x010f ZC_SKILLINFO_LIST). */
 export type SkillInfoEntry = { skillId: number; level: number };
 
-/** A ground-skill unit placement (0x09ca) with its cell, plus the skill it most
- *  likely belongs to (correlated from the caster's latest skill use/cast — the
- *  packet itself only carries the unit graphic, not the skill id). Drives a map
- *  viewer's ground effects (Storm Gust, Arrow Storm, Pneuma, …). skillId is 0 when
- *  no recent skill could be attributed. */
+/** A ground-skill unit placement (0x09ca) with its cell and the unit's own type,
+ *  plus the skill it most likely belongs to (correlated from the caster's latest
+ *  skill use/cast — the packet carries no skill id). Drives a map viewer's ground
+ *  effects (Storm Gust, Arrow Storm, Pneuma, …). skillId is 0 when no recent skill
+ *  could be attributed. */
 export type GroundSkillUnit = {
   time: number;
   unitAid: number;
@@ -127,6 +127,24 @@ export type GroundSkillUnit = {
   gx: number;
   gy: number;
   skillId: number;
+  /**
+   * The unit's type — rAthena's `e_skill_unit_id`, which is also the key the
+   * game client's own UNITTYPE table uses to pick the unit's visual (Storm
+   * Gust's ice, a trap sprite, Pneuma's dome). This, not `skillId`, is what the
+   * client renders from: it comes straight off the packet rather than being
+   * correlated, and skills with no ground graphic of their own share the
+   * no-visual type 134 (`UNT_DUMMYSKILL`). Known values run from 126 upward;
+   * a consumer keying a visual off it still needs a fall-through, since types
+   * outside the client's table do occur. See `decodeSkillEntry09ca` for how the
+   * offset was established.
+   */
+  unitType: number;
+  /** The unit's area radius in cells; 0 means it covers only its own cell. */
+  radius: number;
+  /** False only for a trap the server is hiding from the recorder. */
+  visible: boolean;
+  /** Level of the skill that placed the unit (1-10), straight off the packet. */
+  skillLevel: number;
 };
 
 export type VanishEvent = {
