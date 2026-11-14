@@ -493,8 +493,9 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
         }
         if (ev.unitAid) groundUnits.add(ev.unitAid);
         // Attribute the unit to the caster's most recent skill (its activation
-        // packet fires just before its units) so the viewer can pick the right
-        // ground effect; 0 when nothing recent enough matched.
+        // packet fires just before its units); 0 when nothing recent enough
+        // matched. `unitType` below is the field the client actually renders
+        // from — this is for consumers that want the skill, not the visual.
         const recent = lastSkillByCaster.get(ev.casterAid);
         const skillId = recent && ev.time - recent.time <= GROUND_SKILL_ATTR_MS ? recent.skillId : 0;
         groundSkillUnits.push({
@@ -504,6 +505,11 @@ export function decodeReplay(buf: ArrayBuffer): Replay {
           gx: ev.gx,
           gy: ev.gy,
           skillId,
+          // The packet's own fields — unlike `skillId`, nothing here is guessed.
+          unitType: ev.unitType,
+          radius: ev.radius,
+          visible: ev.visible,
+          skillLevel: ev.skillLevel,
         });
         break;
       }

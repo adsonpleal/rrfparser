@@ -4764,7 +4764,11 @@ exports[`decoded output is stable > em-endow-learned-not-active.rrf 1`] = `
    "casterAid": 1003604,
    "gx": 68,
    "gy": 70,
-   "skillId": 2449
+   "skillId": 2449,
+   "unitType": 223,
+   "radius": 5,
+   "visible": true,
+   "skillLevel": 5
   },
   {
    "time": 21011,
@@ -4772,7 +4776,11 @@ exports[`decoded output is stable > em-endow-learned-not-active.rrf 1`] = `
    "casterAid": 1003604,
    "gx": 67,
    "gy": 70,
-   "skillId": 5372
+   "skillId": 5372,
+   "unitType": 284,
+   "radius": 4,
+   "visible": true,
+   "skillLevel": 5
   },
   {
    "time": 29028,
@@ -4780,7 +4788,11 @@ exports[`decoded output is stable > em-endow-learned-not-active.rrf 1`] = `
    "casterAid": 1003604,
    "gx": 67,
    "gy": 70,
-   "skillId": 5370
+   "skillId": 5370,
+   "unitType": 282,
+   "radius": 4,
+   "visible": true,
+   "skillLevel": 5
   },
   {
    "time": 43020,
@@ -4788,7 +4800,11 @@ exports[`decoded output is stable > em-endow-learned-not-active.rrf 1`] = `
    "casterAid": 1003604,
    "gx": 67,
    "gy": 70,
-   "skillId": 5371
+   "skillId": 5371,
+   "unitType": 283,
+   "radius": 4,
+   "visible": true,
+   "skillLevel": 5
   }
  ],
  "notifyEffects": [],
@@ -23878,7 +23894,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 70,
    "gy": 159,
-   "skillId": 5455
+   "skillId": 5455,
+   "unitType": 301,
+   "radius": 2,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 10863,
@@ -23886,7 +23906,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 70,
    "gy": 159,
-   "skillId": 5457
+   "skillId": 5457,
+   "unitType": 295,
+   "radius": 3,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 13182,
@@ -23894,7 +23918,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 71,
    "gy": 158,
-   "skillId": 5459
+   "skillId": 5459,
+   "unitType": 296,
+   "radius": 2,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 33745,
@@ -23902,7 +23930,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 70,
    "gy": 159,
-   "skillId": 5455
+   "skillId": 5455,
+   "unitType": 301,
+   "radius": 2,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 39389,
@@ -23910,7 +23942,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 70,
    "gy": 159,
-   "skillId": 5457
+   "skillId": 5457,
+   "unitType": 295,
+   "radius": 3,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 43245,
@@ -23918,7 +23954,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 71,
    "gy": 159,
-   "skillId": 5459
+   "skillId": 5459,
+   "unitType": 296,
+   "radius": 2,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 71884,
@@ -23926,7 +23966,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 70,
    "gy": 159,
-   "skillId": 5455
+   "skillId": 5455,
+   "unitType": 301,
+   "radius": 2,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 76182,
@@ -23934,7 +23978,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 70,
    "gy": 159,
-   "skillId": 5457
+   "skillId": 5457,
+   "unitType": 295,
+   "radius": 3,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 79660,
@@ -23942,7 +23990,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 71,
    "gy": 159,
-   "skillId": 5459
+   "skillId": 5459,
+   "unitType": 296,
+   "radius": 2,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 99109,
@@ -23950,7 +24002,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 70,
    "gy": 159,
-   "skillId": 5455
+   "skillId": 5455,
+   "unitType": 301,
+   "radius": 2,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 104101,
@@ -23958,7 +24014,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 70,
    "gy": 159,
-   "skillId": 5457
+   "skillId": 5457,
+   "unitType": 295,
+   "radius": 3,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 107959,
@@ -23966,7 +24026,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1596531,
    "gx": 71,
    "gy": 159,
-   "skillId": 5459
+   "skillId": 5459,
+   "unitType": 296,
+   "radius": 2,
+   "visible": true,
+   "skillLevel": 1
   },
   {
    "time": 112226,
@@ -23974,7 +24038,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 68,
    "gy": 145,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -23982,7 +24050,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 68,
    "gy": 146,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -23990,7 +24062,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 68,
    "gy": 147,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -23998,7 +24074,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 68,
    "gy": 148,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24006,7 +24086,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 69,
    "gy": 145,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24014,7 +24098,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 69,
    "gy": 146,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24022,7 +24110,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 69,
    "gy": 147,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24030,7 +24122,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 69,
    "gy": 148,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24038,7 +24134,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 70,
    "gy": 145,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24046,7 +24146,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 70,
    "gy": 146,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24054,7 +24158,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 70,
    "gy": 147,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24062,7 +24170,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 70,
    "gy": 148,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24070,7 +24182,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 71,
    "gy": 146,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24078,7 +24194,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 71,
    "gy": 147,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24086,7 +24206,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 71,
    "gy": 148,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24094,7 +24218,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 72,
    "gy": 145,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24102,7 +24230,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 72,
    "gy": 146,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24110,7 +24242,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 72,
    "gy": 147,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24118,7 +24254,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 72,
    "gy": 148,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24126,7 +24266,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 73,
    "gy": 145,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24134,7 +24278,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 73,
    "gy": 146,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24142,7 +24290,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 73,
    "gy": 147,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24150,7 +24302,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 73,
    "gy": 148,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24158,7 +24314,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 74,
    "gy": 145,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24166,7 +24326,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 74,
    "gy": 146,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24174,7 +24338,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 74,
    "gy": 147,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   },
   {
    "time": 112226,
@@ -24182,7 +24350,11 @@ exports[`decoded output is stable > hn-magic-lv1.rrf 1`] = `
    "casterAid": 1876404,
    "gx": 74,
    "gy": 148,
-   "skillId": 0
+   "skillId": 0,
+   "unitType": 134,
+   "radius": 0,
+   "visible": true,
+   "skillLevel": 10
   }
  ],
  "notifyEffects": [],

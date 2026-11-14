@@ -1,5 +1,49 @@
 # Changelog
 
+## 1.5.0
+
+### Added
+
+- **`GroundSkillUnit.unitType` — the field the client renders a ground skill
+  from.** 0x09ca (`ZC_SKILL_ENTRY5`) carries the skill unit's *type*, and that
+  type, not the skill id, is what the game client keys its visual off: Storm
+  Gust's ice, a trap's sprite, Pneuma's dome. The decoder read the AID, the
+  creator's AID and the cell and stopped, so a consumer rendering ground effects
+  had to fall back on `skillId`, which this library only *correlates* from the
+  caster's latest cast. `unitType` comes straight off the wire.
+
+  The offsets were established from the packets rather than from a layout table
+  (the published ones disagree on whether the type is a `uint8` or a `uint32`).
+  Grouping 342,421 0x09ca records from 575 recordings by `pktLen` gives exactly
+  one record shape — 23 bytes, every time — which leaves 7 bytes after `yPos`
+  and only fits the `uint32` variant. The type then lines up with rAthena's
+  `e_skill_unit_id` at four independent anchors: MG_SAFETYWALL (12) → 126, the
+  enum's first member; MG_FIREWALL (18) → 127; PR_SANCTUARY/PR_MAGNUS/AL_PNEUMA
+  (70/79/25) → 131/132/133, three consecutive members in the enum's own order;
+  and WZ_FIREPILLAR (80) → 135. Skills with no ground graphic of their own all
+  land on 134, `UNT_DUMMYSKILL`, which is what that member exists for. The id is
+  looked up and not derived: EM_* 5370/5371/5372 give 282/283/284 while HN_*
+  5455/5457/5459 give 301/295/296.
+
+- **`radius`, `visible` and `skillLevel` on the same record.** They sit in the
+  three bytes after the type and the same corpus pins them: `radius` is constant
+  per `unitType` (126 → 0, 131 → 1, 266 → 9, 199 → 13), i.e. a property of the
+  unit; `visible` is true in all 342,421 records except for type 145, the unit
+  of HT_ANKLESNARE — the one type in the corpus that is a trap the server can
+  hide from a viewer; and `skillLevel` only ever holds 1-10 and reads 1 on every
+  record of `hn-magic-lv1.rrf`, a level-1 recording. `skillLevel` is the real
+  level off the packet, unlike the correlated `skillId` beside it.
+
+### Notes
+
+- Additive: `GroundSkillUnit` gains four fields and nothing existing moved. A
+  truncated record (never seen in any recording) still decodes, with `unitType`
+  0, so the unit→caster link that reattributes AoE damage is never lost.
+
+- The client's own table covers roughly types 126-301, and a value outside it
+  does occur (21292, 73 records in one replay), so a consumer keying a visual
+  off `unitType` needs a fall-through for unknown types.
+
 ## 1.4.0
 
 ### Added

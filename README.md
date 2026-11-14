@@ -63,7 +63,7 @@ A `.rrf` file is two things: a set of **containers** holding a snapshot of the c
 | `skillUses` / `skillCasts` | skill activations and cast bars |
 | `entities` | every player, mob and NPC seen, with worn-gear sprite ids |
 | `moves` / `positions` | walk commands and forced position snaps |
-| `groundSkillUnits` | AoE ground units, attributed back to the skill that placed them |
+| `groundSkillUnits` | AoE ground units with their cell, type, radius and level, attributed back to the skill that placed them |
 | `mobHp`, `vanishes`, `kills` | health updates and despawns |
 | `itemAdds` / `itemDeletes` / `equipChanges` | inventory changes over time |
 | `storages` / `storageChanges` | Kafra and clan storage listings, and deposits/withdrawals — see `storageAt` for the contents |
